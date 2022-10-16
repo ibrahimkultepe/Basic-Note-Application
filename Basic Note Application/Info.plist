@@ -2,6 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>JosefinSans-ThinItalic.ttfJosefinSans-Thin.ttfJosefinSans-SemiBoldItalic.ttfJosefinSans-SemiBold.ttfJosefinSans-Regular.ttfJosefinSans-MediumItalic.ttfJosefinSans-Medium.ttfJosefinSans-LightItalic.ttfJosefinSans-Light.ttf</string>
+		<string>JosefinSans-Thin.ttf</string>
+		<string>JosefinSans-SemiBoldItalic.ttf</string>
+		<string>JosefinSans-SemiBold.ttf</string>
+		<string>JosefinSans-Regular.ttf</string>
+		<string>JosefinSans-MediumItalic.ttf</string>
+		<string>JosefinSans-Medium.ttf</string>
+		<string>JosefinSans-LightItalic.ttf</string>
+		<string>JosefinSans-Light.ttf</string>
+		<string>JosefinSans-Italic.ttf</string>
+		<string>JosefinSans-ExtraLightItalic.ttf</string>
+		<string>JosefinSans-ExtraLight.ttf</string>
+		<string>JosefinSans-BoldItalic.ttf</string>
+		<string>JosefinSans-Bold.ttf</string>
+		<string>JosefinSans-VariableFont_wght.ttf</string>
+		<string>JosefinSans-Italic-VariableFont_wght.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
