@@ -11,11 +11,11 @@ import Alamofire
 
 class RegisterViewController: UIViewController {
     
-    let primaryButton = PrimaryButton()
-    let authTextField = AuthTextField()
-    let authTextField2 = AuthTextField()
-    let authTextField3 = AuthTextField()
-    let authSignUpView = AuthSignUpView()
+    private let primaryButton = PrimaryButton()
+    private let authTextField = AuthTextField()
+    private let authTextField2 = AuthTextField()
+    private let authTextField3 = AuthTextField()
+    private let authSignUpView = AuthSignUpView()
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
