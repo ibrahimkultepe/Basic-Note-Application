@@ -9,7 +9,7 @@ import UIKit
 import TinyConstraints
 import Alamofire
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: BaseViewController<RegisterViewModel> {
     
     private let primaryButton = PrimaryButton()
     private let authTextField = AuthTextField()
@@ -17,7 +17,7 @@ class RegisterViewController: UIViewController {
     private let authTextField3 = AuthTextField()
     private let authSignUpView = AuthSignUpView()
     
-    private let stackView: UIStackView = {
+        private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 10
@@ -52,17 +52,7 @@ class RegisterViewController: UIViewController {
         authTextField2.placeholder = "Email Address"
         authTextField3.placeholder = "Password"
         setupViews()
-    }
-    
-    private let viewModel: RegisterViewModel
-    
-    init(viewModel: RegisterViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        viewModel.loading()
     }
     
     private func setupViews() {

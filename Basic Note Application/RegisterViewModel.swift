@@ -7,6 +7,13 @@
 
 import Foundation
 
-class RegisterViewModel {
+class RegisterViewModel: BaseViewModel {
     
+    func loading() {
+        showActivityIndicatorView?()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.hideLoading?()
+            self.showWarningToast?("warning")
+        }
+    }
 }
