@@ -27,14 +27,12 @@ class AuthSignUpView: UIView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 10
-        stackView.backgroundColor = .brown
         return stackView
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.backgroundColor = .blue
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 30, weight: .bold)
         return label

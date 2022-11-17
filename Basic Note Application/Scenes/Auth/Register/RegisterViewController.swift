@@ -17,11 +17,20 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
     private let authTextField3 = AuthTextField()
     private let authSignUpView = AuthSignUpView()
     
-        private let stackView: UIStackView = {
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        return scrollView
+    }()
+    
+    private let contentView: UIView = {
+        let contentView = UIView()
+        return contentView
+    }()
+    
+    private let contentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 10
-        stackView.backgroundColor = .cyan
         return stackView
     }()
     
@@ -52,23 +61,32 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         authTextField2.placeholder = "Email Address"
         authTextField3.placeholder = "Password"
         setupViews()
-        viewModel.loading()
     }
     
     private func setupViews() {
-        view.addSubview(stackView)
-        stackView.edgesToSuperview( insets: .init(top: 100, left: 10, bottom: 30, right: 10) ,usingSafeArea: true)
+        view.addSubview(scrollView)
+        scrollView.edgesToSuperview(usingSafeArea: true)
         
-        stackView.addArrangedSubview(authSignUpView)
+        view.addSubview(signInNowLabel)
+        signInNowLabel.trailingToSuperview()
+        signInNowLabel.leadingToSuperview()
+        signInNowLabel.bottomToSuperview(usingSafeArea: true)
+
+        scrollView.addSubview(contentView)
+        contentView.edgesToSuperview()
+        contentView.widthToSuperview()
         
-        stackView.addArrangedSubview(authTextField)
-        stackView.addArrangedSubview(authTextField2)
-        stackView.addArrangedSubview(authTextField3)
-        stackView.addArrangedSubview(forgotPasswordLabel)
+        contentView.addSubview(contentStackView)
+        contentStackView.edgesToSuperview( insets: .init(top: 100, left: 10, bottom: 0, right: 10))
         
-        stackView.addArrangedSubview(primaryButton)
+        contentStackView.addArrangedSubview(authSignUpView)
+        contentStackView.setCustomSpacing(50, after: authSignUpView)
         
-        stackView.addArrangedSubview(signInNowLabel)
+        contentStackView.addArrangedSubview(authTextField)
+        contentStackView.addArrangedSubview(authTextField2)
+        contentStackView.addArrangedSubview(authTextField3)
+        contentStackView.addArrangedSubview(forgotPasswordLabel)
+        contentStackView.addArrangedSubview(primaryButton)
     }
 }
 

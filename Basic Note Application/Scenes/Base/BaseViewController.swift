@@ -11,6 +11,7 @@ import UIKit
 class BaseViewController<V: BaseViewModelProtocol>: UIViewController, BaseViewController.LoadingProtocols {
     
     typealias LoadingProtocols = LoadingProtocol & ActivityIndicatorProtocol
+    
     var viewModel: V
     
     init(viewModel: V) {

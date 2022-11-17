@@ -34,10 +34,10 @@
 		9C28271028EF755200806BC2 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C28270F28EF755200806BC2 /* FontExtension.swift */; };
 		9C6AF1FA290B1888007E20E9 /* AuthSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6AF1F9290B1888007E20E9 /* AuthSignUpView.swift */; };
 		9C6B55852901E26100365FA9 /* AuthTextField .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6B55842901E26100365FA9 /* AuthTextField .swift */; };
+		9C8862272926BE8E00EA45EC /* LoadingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8862262926BE8E00EA45EC /* LoadingProtocol.swift */; };
 		9C8BB0662925465C0030B9F9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB0652925465C0030B9F9 /* BaseViewController.swift */; };
 		9C8BB0682925466A0030B9F9 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB0672925466A0030B9F9 /* BaseViewModel.swift */; };
 		9C8BB06B292548300030B9F9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB06A292548300030B9F9 /* Constant.swift */; };
-		9C8BB06E29254ABC0030B9F9 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB06D29254ABC0030B9F9 /* Protocol.swift */; };
 		9C8BB07129254B340030B9F9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB07029254B340030B9F9 /* ActivityIndicator.swift */; };
 		9C8BB07329254BB80030B9F9 /* ActivityIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB07229254BB80030B9F9 /* ActivityIndicatorProtocol.swift */; };
 		9C8BB07529254BF10030B9F9 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB07429254BF10030B9F9 /* ActivityIndicatorView.swift */; };
@@ -80,10 +80,10 @@
 		9C28270F28EF755200806BC2 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		9C6AF1F9290B1888007E20E9 /* AuthSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignUpView.swift; sourceTree = "<group>"; };
 		9C6B55842901E26100365FA9 /* AuthTextField .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthTextField .swift"; sourceTree = "<group>"; };
+		9C8862262926BE8E00EA45EC /* LoadingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingProtocol.swift; sourceTree = "<group>"; };
 		9C8BB0652925465C0030B9F9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9C8BB0672925466A0030B9F9 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		9C8BB06A292548300030B9F9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		9C8BB06D29254ABC0030B9F9 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		9C8BB07029254B340030B9F9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		9C8BB07229254BB80030B9F9 /* ActivityIndicatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorProtocol.swift; sourceTree = "<group>"; };
 		9C8BB07429254BF10030B9F9 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -142,13 +142,11 @@
 		9C0FD6CF28D5059800F0EFF2 /* Basic Note Application */ = {
 			isa = PBXGroup;
 			children = (
-				9C8BB06C29254AB00030B9F9 /* Protocol */,
-				9C8BB0692925481B0030B9F9 /* Constant */,
-				9C8BB063292546300030B9F9 /* Scene */,
 				9C0FD6D028D5059800F0EFF2 /* AppDelegate.swift */,
 				9C0FD6D228D5059800F0EFF2 /* SceneDelegate.swift */,
-				9C0FD6D428D5059800F0EFF2 /* RegisterViewController.swift */,
-				9C0FD6E428D505F300F0EFF2 /* RegisterViewModel.swift */,
+				9C8BB06C29254AB00030B9F9 /* Protocol */,
+				9C8BB0692925481B0030B9F9 /* Constant */,
+				9C8BB063292546300030B9F9 /* Scenes */,
 				9C0FD6D928D5059E00F0EFF2 /* Assets.xcassets */,
 				9C0FD6DB28D5059E00F0EFF2 /* LaunchScreen.storyboard */,
 				9C8C407E29000C88002FF9A7 /* UIComponent */,
@@ -208,12 +206,30 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		9C8BB063292546300030B9F9 /* Scene */ = {
+		9C8862282926C7D800EA45EC /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9C8862292926C7E900EA45EC /* Register */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9C8862292926C7E900EA45EC /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				9C0FD6D428D5059800F0EFF2 /* RegisterViewController.swift */,
+				9C0FD6E428D505F300F0EFF2 /* RegisterViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		9C8BB063292546300030B9F9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				9C8BB064292546420030B9F9 /* Base */,
+				9C8862282926C7D800EA45EC /* Auth */,
 			);
-			path = Scene;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		9C8BB064292546420030B9F9 /* Base */ = {
@@ -236,7 +252,7 @@
 		9C8BB06C29254AB00030B9F9 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				9C8BB06D29254ABC0030B9F9 /* Protocol.swift */,
+				9C8862262926BE8E00EA45EC /* LoadingProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -396,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C8862272926BE8E00EA45EC /* LoadingProtocol.swift in Sources */,
 				9C6B55852901E26100365FA9 /* AuthTextField .swift in Sources */,
 				9C8BB0682925466A0030B9F9 /* BaseViewModel.swift in Sources */,
 				9C8BB07829254D540030B9F9 /* ToastPresenter.swift in Sources */,
@@ -411,7 +428,6 @@
 				9C8BB06B292548300030B9F9 /* Constant.swift in Sources */,
 				9C0FD6E528D505F300F0EFF2 /* RegisterViewModel.swift in Sources */,
 				9C0FD6D328D5059800F0EFF2 /* SceneDelegate.swift in Sources */,
-				9C8BB06E29254ABC0030B9F9 /* Protocol.swift in Sources */,
 				9C8BB07A29254EDB0030B9F9 /* ToastWarningView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

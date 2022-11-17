@@ -13,6 +13,7 @@ class PrimaryButton: UIButton {
     func configureContents() {
         titleLabel?.text = "sdasdada"
         backgroundColor = .white
+        height(55)
     }
     
     override init(frame: CGRect) {

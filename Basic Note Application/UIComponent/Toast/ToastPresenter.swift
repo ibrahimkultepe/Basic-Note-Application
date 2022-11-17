@@ -14,7 +14,7 @@ public class ToastPresenter {
         attributes.entryBackground = .color(color: EKColor(light: .red, dark: .red))
         attributes.entranceAnimation = .translation
         attributes.exitAnimation = .translation
-
+        
         let customView = TostWarningView(text: text)
         SwiftEntryKit.display(entry: customView, using: attributes)
     }

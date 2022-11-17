@@ -23,11 +23,9 @@ class TostWarningView: UIView {
         configureContents()
     }
     
-    // swiftlint:disable fatal_error unavailable_function
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // swiftlint:enable fatal_error unavailable_function
     
     private func configureContents() {
         addSubview(label)

@@ -12,6 +12,7 @@ class AuthTextField : UITextField {
     
     func configureContents() {
         backgroundColor = .white
+        height(45)
     }
     
     override init(frame: CGRect) {

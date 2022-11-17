@@ -23,11 +23,9 @@ final class BlockingActivityIndicator: UIView {
         activityIndicator.centerInSuperview()
     }
     
-    // swiftlint:disable fatal_error unavailable_function
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // swiftlint:enable fatal_error unavailable_function
 }
 
 extension UIWindow {
