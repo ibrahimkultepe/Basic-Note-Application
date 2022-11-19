@@ -36,10 +36,14 @@ extension BaseViewController {
             ToastPresenter.showWarningToast(text: message)
         }
         viewModel.hideLoading = { [weak self] in
-            self?.dismissLoading()
+            DispatchQueue.main.async {
+                self?.dismissLoading()
+            }
         }
         viewModel.showLoading = { [weak self] in
-            self?.presentLoading()
+            DispatchQueue.main.async {
+                self?.presentLoading()
+            }
         }
         viewModel.hideActivityIndicatorView = { [weak self] in
             self?.hideActivityIndicator()

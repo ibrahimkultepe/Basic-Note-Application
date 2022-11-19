@@ -7,12 +7,15 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class PrimaryButton: UIButton {
     
     func configureContents() {
-        titleLabel?.text = "sdasdada"
-        backgroundColor = .white
+        setTitle("Sign Up", for: .normal)
+        titleLabel?.font = .bold(size: 20)
+        setTitleColor(UIColor.blue, for: .normal)
+        backgroundColor = .cyan
         height(55)
     }
     

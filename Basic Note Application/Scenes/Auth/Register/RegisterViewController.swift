@@ -16,16 +16,8 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
     private let authTextField2 = AuthTextField()
     private let authTextField3 = AuthTextField()
     private let authSignUpView = AuthSignUpView()
-    
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        return scrollView
-    }()
-    
-    private let contentView: UIView = {
-        let contentView = UIView()
-        return contentView
-    }()
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
     
     private let contentStackView: UIStackView = {
         let stackView = UIStackView()
@@ -39,13 +31,13 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         label.textColor = .black
         label.textAlignment = .right
         label.text = "Forgot Password?"
-        label.font = .systemFont(ofSize: 17, weight: .bold)
+        label.font = .systemFont(ofSize: 15, weight: .heavy)
         return label
     }()
     
     private let signInNowLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .darkGray
         label.textAlignment = .center
         label.text = "Already have an account? Sign in now"
         label.font = .systemFont(ofSize: 17, weight: .bold)
@@ -54,7 +46,7 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         authSignUpView.title = "Sign Up"
         authSignUpView.subtitle = "Login or sign up to continue using our app."
         authTextField.placeholder = "Full Name"
@@ -65,28 +57,28 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
     
     private func setupViews() {
         view.addSubview(scrollView)
-        scrollView.edgesToSuperview(usingSafeArea: true)
-        
-        view.addSubview(signInNowLabel)
-        signInNowLabel.trailingToSuperview()
-        signInNowLabel.leadingToSuperview()
-        signInNowLabel.bottomToSuperview(usingSafeArea: true)
+        scrollView.edgesToSuperview( excluding: .bottom ,usingSafeArea: true)
 
         scrollView.addSubview(contentView)
         contentView.edgesToSuperview()
         contentView.widthToSuperview()
         
         contentView.addSubview(contentStackView)
-        contentStackView.edgesToSuperview( insets: .init(top: 100, left: 10, bottom: 0, right: 10))
+        contentStackView.edgesToSuperview(insets: .init(top: 100, left: 10, bottom: 0, right: 10))
         
         contentStackView.addArrangedSubview(authSignUpView)
         contentStackView.setCustomSpacing(50, after: authSignUpView)
-        
         contentStackView.addArrangedSubview(authTextField)
         contentStackView.addArrangedSubview(authTextField2)
         contentStackView.addArrangedSubview(authTextField3)
         contentStackView.addArrangedSubview(forgotPasswordLabel)
         contentStackView.addArrangedSubview(primaryButton)
+        
+        view.addSubview(signInNowLabel)
+        signInNowLabel.topToBottom(of: scrollView)
+        signInNowLabel.leadingToSuperview()
+        signInNowLabel.trailingToSuperview()
+        signInNowLabel.bottomToSuperview(usingSafeArea: true)
     }
 }
 
