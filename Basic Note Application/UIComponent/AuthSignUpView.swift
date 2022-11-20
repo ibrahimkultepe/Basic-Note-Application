@@ -57,6 +57,7 @@ class AuthSignUpView: UIView {
         super.init(frame: frame)
         configureContents()
     }
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configureContents()

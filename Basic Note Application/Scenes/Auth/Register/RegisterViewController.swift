@@ -12,9 +12,9 @@ import Alamofire
 class RegisterViewController: BaseViewController<RegisterViewModel> {
     
     private let primaryButton = PrimaryButton()
-    private let authTextField = AuthTextField()
-    private let authTextField2 = AuthTextField()
-    private let authTextField3 = AuthTextField()
+    private let nameAuthTextField = AuthTextField()
+    private let emailAuthTextField = AuthTextField()
+    private let passwordAuthTextField = AuthTextField()
     private let authSignUpView = AuthSignUpView()
     private let scrollView = UIScrollView()
     private let contentView = UIView()
@@ -28,10 +28,10 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
     
     private let forgotPasswordLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .darkGray
         label.textAlignment = .right
         label.text = "Forgot Password?"
-        label.font = .systemFont(ofSize: 15, weight: .heavy)
+        label.font = .systemFont(ofSize: 16, weight: .heavy)
         return label
     }()
     
@@ -49,15 +49,16 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         view.backgroundColor = .white
         authSignUpView.title = "Sign Up"
         authSignUpView.subtitle = "Login or sign up to continue using our app."
-        authTextField.placeholder = "Full Name"
-        authTextField2.placeholder = "Email Address"
-        authTextField3.placeholder = "Password"
+        nameAuthTextField.placeholder = "Full Name"
+        emailAuthTextField.placeholder = "Email Address"
+        passwordAuthTextField.placeholder = "Password"
+        passwordAuthTextField.isSecureTextEntry = true
         setupViews()
     }
     
     private func setupViews() {
         view.addSubview(scrollView)
-        scrollView.edgesToSuperview( excluding: .bottom ,usingSafeArea: true)
+        scrollView.edgesToSuperview(excluding: .bottom ,usingSafeArea: true)
 
         scrollView.addSubview(contentView)
         contentView.edgesToSuperview()
@@ -68,10 +69,11 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         
         contentStackView.addArrangedSubview(authSignUpView)
         contentStackView.setCustomSpacing(50, after: authSignUpView)
-        contentStackView.addArrangedSubview(authTextField)
-        contentStackView.addArrangedSubview(authTextField2)
-        contentStackView.addArrangedSubview(authTextField3)
+        contentStackView.addArrangedSubview(nameAuthTextField)
+        contentStackView.addArrangedSubview(emailAuthTextField)
+        contentStackView.addArrangedSubview(passwordAuthTextField)
         contentStackView.addArrangedSubview(forgotPasswordLabel)
+        contentStackView.setCustomSpacing(20, after: forgotPasswordLabel)
         contentStackView.addArrangedSubview(primaryButton)
         
         view.addSubview(signInNowLabel)
