@@ -17,7 +17,7 @@ class PrimaryButton: UIButton {
         backgroundColor = UIColor(red: 0.863, green: 0.863, blue: 1, alpha: 1)
         height(60)
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureContents()

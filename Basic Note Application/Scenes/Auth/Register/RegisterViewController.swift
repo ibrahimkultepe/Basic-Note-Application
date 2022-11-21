@@ -16,8 +16,10 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
     private let emailAuthTextField = AuthTextField()
     private let passwordAuthTextField = AuthTextField()
     private let authSignUpView = AuthSignUpView()
+    private let validation = Validation()
     private let scrollView = UIScrollView()
     private let contentView = UIView()
+    
     
     private let contentStackView: UIStackView = {
         let stackView = UIStackView()
@@ -28,20 +30,34 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
     
     private let forgotPasswordLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .darkGray
+        label.textColor = UIColor(red: 0.137, green: 0.137, blue: 0.235, alpha: 1)
         label.textAlignment = .right
         label.text = "Forgot Password?"
-        label.font = .systemFont(ofSize: 16, weight: .heavy)
+        label.font = .systemFont(ofSize: 14, weight: .semibold)
         return label
+    }()
+    
+    private let signInNowStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        return stackView
     }()
     
     private let signInNowLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .darkGray
-        label.textAlignment = .center
-        label.text = "Already have an account? Sign in now"
+        label.textColor = UIColor(red: 0.545, green: 0.584, blue: 0.604, alpha: 1)
+        label.text = "Already have an account?"
         label.font = .systemFont(ofSize: 17, weight: .bold)
         return label
+    }()
+    
+    private let signInNowButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(" Sign In Now", for: .normal)
+        button.titleLabel?.font = .bold(size: 17)
+        button.setTitleColor(UIColor(red: 0.545, green: 0.549, blue: 1, alpha: 1), for: .normal)
+        button.backgroundColor = UIColor.white
+        return button
     }()
     
     override func viewDidLoad() {
@@ -53,13 +69,26 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         emailAuthTextField.placeholder = "Email Address"
         passwordAuthTextField.placeholder = "Password"
         passwordAuthTextField.isSecureTextEntry = true
+        primaryButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         setupViews()
+    }
+    
+    @objc func buttonAction() {
+        if let unwrappedEmail = emailAuthTextField.text {
+            validation.isValidEmail(unwrappedEmail)
+        }
+        
+        guard let unwrappedPassword = passwordAuthTextField.text else { return }
+        validation.isValidPassword(unwrappedPassword)
+        
+        guard let unrappedName = nameAuthTextField.text else { return }
+        validation.isValidName(unrappedName)
     }
     
     private func setupViews() {
         view.addSubview(scrollView)
         scrollView.edgesToSuperview(excluding: .bottom ,usingSafeArea: true)
-
+        
         scrollView.addSubview(contentView)
         contentView.edgesToSuperview()
         contentView.widthToSuperview()
@@ -76,11 +105,14 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         contentStackView.setCustomSpacing(20, after: forgotPasswordLabel)
         contentStackView.addArrangedSubview(primaryButton)
         
-        view.addSubview(signInNowLabel)
-        signInNowLabel.topToBottom(of: scrollView)
-        signInNowLabel.leadingToSuperview()
-        signInNowLabel.trailingToSuperview()
-        signInNowLabel.bottomToSuperview(usingSafeArea: true)
+        view.addSubview(signInNowStackView)
+        signInNowStackView.topToBottom(of: scrollView)
+        signInNowStackView.centerXToSuperview()
+        signInNowStackView.leadingToSuperview(relation: .equalOrGreater)
+        signInNowStackView.trailingToSuperview(relation: .equalOrLess)
+        signInNowStackView.bottomToSuperview(usingSafeArea: true)
+        signInNowStackView.addArrangedSubview(signInNowLabel)
+        signInNowStackView.addArrangedSubview(signInNowButton)
     }
 }
 
