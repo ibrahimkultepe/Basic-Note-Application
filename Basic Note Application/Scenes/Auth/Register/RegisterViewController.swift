@@ -11,81 +11,66 @@ import Alamofire
 
 class RegisterViewController: BaseViewController<RegisterViewModel> {
     
-    private let primaryButton = PrimaryButton()
-    private let nameAuthTextField = AuthTextField()
-    private let emailAuthTextField = AuthTextField()
-    private let passwordAuthTextField = AuthTextField()
-    private let authSignUpView = AuthSignUpView()
-    private let validation = Validation()
     private let scrollView = UIScrollView()
     private let contentView = UIView()
-    
-    
     private let contentStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 10
         return stackView
     }()
+
+    private let authSignUpView = AuthSignUpView()
     
-    private let forgotPasswordLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor(red: 0.137, green: 0.137, blue: 0.235, alpha: 1)
-        label.textAlignment = .right
-        label.text = "Forgot Password?"
-        label.font = .systemFont(ofSize: 14, weight: .semibold)
-        return label
+    private let nameAuthTextField = AuthTextField()
+    private let emailAuthTextField = AuthTextField()
+    private let passwordAuthTextField = AuthTextField()
+    
+    private let passwordView = UIView()
+    
+    private let forgotPasswordButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.appBlack, for: .normal)
+        button.titleLabel?.font = .semiBold(size: 16)
+        return button
     }()
+    private let signUpButton = PrimaryButton()
     
     private let signInNowStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         return stackView
     }()
-    
+
     private let signInNowLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 0.545, green: 0.584, blue: 0.604, alpha: 1)
-        label.text = "Already have an account?"
+        label.textColor = .appLightGray
         label.font = .systemFont(ofSize: 17, weight: .bold)
         return label
     }()
     
     private let signInNowButton: UIButton = {
         let button = UIButton()
-        button.setTitle(" Sign In Now", for: .normal)
         button.titleLabel?.font = .bold(size: 17)
-        button.setTitleColor(UIColor(red: 0.545, green: 0.549, blue: 1, alpha: 1), for: .normal)
+        button.setTitleColor(.appLightBlue, for: .normal)
         button.backgroundColor = UIColor.white
         return button
     }()
     
+    private let validation = Validation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        authSignUpView.title = "Sign Up"
-        authSignUpView.subtitle = "Login or sign up to continue using our app."
-        nameAuthTextField.placeholder = "Full Name"
-        emailAuthTextField.placeholder = "Email Address"
-        passwordAuthTextField.placeholder = "Password"
-        passwordAuthTextField.isSecureTextEntry = true
-        primaryButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        setupViews()
+        addSubviews()
+        configureContent()
+        setLocalize()
     }
+}
+
+// MARK: - UILayout
+extension RegisterViewController {
     
-    @objc func buttonAction() {
-        if let unwrappedEmail = emailAuthTextField.text {
-            validation.isValidEmail(unwrappedEmail)
-        }
-        
-        guard let unwrappedPassword = passwordAuthTextField.text else { return }
-        validation.isValidPassword(unwrappedPassword)
-        
-        guard let unrappedName = nameAuthTextField.text else { return }
-        validation.isValidName(unrappedName)
-    }
-    
-    private func setupViews() {
+    private func addSubviews() {
         view.addSubview(scrollView)
         scrollView.edgesToSuperview(excluding: .bottom ,usingSafeArea: true)
         
@@ -101,9 +86,15 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         contentStackView.addArrangedSubview(nameAuthTextField)
         contentStackView.addArrangedSubview(emailAuthTextField)
         contentStackView.addArrangedSubview(passwordAuthTextField)
-        contentStackView.addArrangedSubview(forgotPasswordLabel)
-        contentStackView.setCustomSpacing(20, after: forgotPasswordLabel)
-        contentStackView.addArrangedSubview(primaryButton)
+        contentStackView.addArrangedSubview(passwordView)
+
+        passwordView.addSubview(forgotPasswordButton)
+        forgotPasswordButton.trailing(to: passwordView)
+        forgotPasswordButton.leadingToSuperview(relation: .equalOrGreater)
+        forgotPasswordButton.topToSuperview()
+        forgotPasswordButton.bottomToSuperview()
+        
+        contentStackView.addArrangedSubview(signUpButton)
         
         view.addSubview(signInNowStackView)
         signInNowStackView.topToBottom(of: scrollView)
@@ -116,3 +107,44 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
     }
 }
 
+// MARK: - Configure
+extension RegisterViewController {
+    
+    func configureContent() {
+        view.backgroundColor = .white
+        signUpButton.addTarget(self, action: #selector(signUpButtonAction), for: .touchUpInside)
+        passwordAuthTextField.isSecureTextEntry = true
+    }
+}
+
+// MARK: - SetLocalize
+extension RegisterViewController {
+    
+    func setLocalize() {
+        authSignUpView.title = "Sign Up"
+        authSignUpView.subtitle = "Login or sign up to continue using our app."
+        nameAuthTextField.placeholder = "Full Name"
+        emailAuthTextField.placeholder = "Email Address"
+        passwordAuthTextField.placeholder = "Password"
+        signInNowLabel.text = "Already have an account?"
+        forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
+        signInNowButton.setTitle(" Sign In Now", for: .normal)
+    }
+}
+
+// MARK: - Actions
+extension RegisterViewController {
+    
+    @objc
+    private func signUpButtonAction() {
+       guard
+        let unrappedName = nameAuthTextField.text,
+        let unwrappedEmail = emailAuthTextField.text,
+        let unwrappedPassword = passwordAuthTextField.text
+        else { return }
+        
+        guard validation.isValidName(unrappedName) else { return }
+        guard validation.isValidEmail(unwrappedEmail) else { return }
+        guard validation.isValidPassword(unwrappedPassword) else { return }
+    }
+}

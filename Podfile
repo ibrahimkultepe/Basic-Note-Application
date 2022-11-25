@@ -8,8 +8,8 @@ $Alamofire =  pod 'Alamofire', '~> 5.4'
 # Helper
 $TinyConstraints = pod "TinyConstraints", '~> 4.0'
 $IQKeyboardManagerSwift = pod "IQKeyboardManagerSwift", '~> 6.5'
-$SwiftLint = pod 'SwiftLint', '~> 0.44'
 $MobilliumUserDefaults = pod 'MobilliumUserDefaults', '~> 2.0'
+$SwiftLint = pod 'SwiftLint', '~> 0.44'
 $MobilliumDateFormatter = pod 'MobilliumDateFormatter', '~> 1.2'
 $MobilliumBuilders = pod 'MobilliumBuilders', '~> 1.4'
 $Kingfisher = pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git', :branch => 'version6-xcode13'
@@ -26,8 +26,8 @@ target 'Basic Note Application' do
   
   # Helper
   $TinyConstraints
-  $IQKeyboardManagerSwift
   $SwiftLint
+  $IQKeyboardManagerSwift
   $MobilliumUserDefaults
   $MobilliumDateFormatter
   $MobilliumBuilders

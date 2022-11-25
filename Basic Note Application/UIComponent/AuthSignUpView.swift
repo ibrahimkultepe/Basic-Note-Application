@@ -32,7 +32,7 @@ class AuthSignUpView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .appBlack
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 30, weight: .bold)
         return label
@@ -40,7 +40,7 @@ class AuthSignUpView: UIView {
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .darkGray
+        label.textColor = .appLightGray
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 17, weight: .light)
         return label

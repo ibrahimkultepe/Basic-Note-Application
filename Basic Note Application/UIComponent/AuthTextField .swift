@@ -13,17 +13,17 @@ class AuthTextField : UITextField, UITextFieldDelegate {
     func configureContents() {
         layer.cornerRadius = 5
         layer.borderWidth = 1
-        layer.borderColor = UIColor.darkGray.cgColor
+        layer.borderColor = UIColor.appLightGray.cgColor
         backgroundColor = .white
         height(50)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        layer.borderColor = UIColor(red: 0.545, green: 0.549, blue: 1, alpha: 1).cgColor
+        layer.borderColor = UIColor.appLightBlue.cgColor
     }
 
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        layer.borderColor = UIColor.darkGray.cgColor
+        layer.borderColor = UIColor.appLightGray.cgColor
     }
     
     let padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 5)
