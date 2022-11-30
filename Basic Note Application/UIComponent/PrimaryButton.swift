@@ -11,14 +11,18 @@ import UIKit
 class PrimaryButton: UIButton {
     
     func configureContents() {
-        titleLabel?.text = "sdasdada"
-        backgroundColor = .white
+        setTitle("Sign Up", for: .normal)
+        titleLabel?.font = .bold(size: 20)
+        setTitleColor(.appLightBlue, for: .normal)
+        backgroundColor = .appHeavyBlue
+        height(60)
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureContents()
     }
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configureContents()
