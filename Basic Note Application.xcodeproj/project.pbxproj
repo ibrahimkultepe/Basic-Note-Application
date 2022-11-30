@@ -140,7 +140,6 @@
 			children = (
 				9C0FD6D028D5059800F0EFF2 /* AppDelegate.swift */,
 				9C0FD6D228D5059800F0EFF2 /* SceneDelegate.swift */,
-				9C751395292E8CD2009D1F01 /* UIColor+Extensions.swift */,
 				9C581BD4292C176C00CA381A /* Validation.swift */,
 				9C8BB06C29254AB00030B9F9 /* Protocol */,
 				9C8BB0692925481B0030B9F9 /* Constant */,
@@ -199,6 +198,7 @@
 		9C28270E28EF753C00806BC2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				9C751395292E8CD2009D1F01 /* UIColor+Extensions.swift */,
 				9C28270F28EF755200806BC2 /* FontExtension.swift */,
 			);
 			path = Extension;
