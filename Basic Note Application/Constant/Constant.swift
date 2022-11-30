@@ -9,3 +9,4 @@ import Foundation
 
 typealias VoidClosure = (() -> ())
 typealias StringClosure = ((String) -> ())
+let baseUrl = "https://basic-note-application1.herokuapp.com/api/"

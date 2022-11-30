@@ -15,6 +15,7 @@ class AuthTextField : UITextField, UITextFieldDelegate {
         layer.borderWidth = 1
         layer.borderColor = UIColor.appLightGray.cgColor
         backgroundColor = .white
+        autocorrectionType = .no
         height(50)
     }
     

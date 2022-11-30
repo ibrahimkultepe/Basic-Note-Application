@@ -6,6 +6,27 @@
 //
 
 import Foundation
+import Alamofire
 
 class RegisterViewModel: BaseViewModel {
+    
+    func registerRequest(fullName: String, email: String, password: String) {
+        let parameters: [String: String] = ["full_name": fullName, "email": email, "password": password]
+        let url = baseUrl + "auth/register"
+        
+        showActivityIndicatorView?()
+        AF.request(url, method: .post, parameters: parameters).response { [weak self] response in
+            guard let self = self else { return }
+            self.hideActivityIndicatorView?()
+            guard let data = response.data else { return }
+            
+            do {
+                let decoder = JSONDecoder()
+                let decodedData = try decoder.decode(RegisterResponse.self, from: data)
+                // TODO: Logine gidilecek
+            } catch {
+                self.showWarningToast?(response.error?.localizedDescription ?? "Bir hata oluştu.")
+            }
+        }
+    }
 }

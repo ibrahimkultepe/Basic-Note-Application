@@ -146,5 +146,7 @@ extension RegisterViewController {
         guard validation.isValidName(unrappedName) else { return }
         guard validation.isValidEmail(unwrappedEmail) else { return }
         guard validation.isValidPassword(unwrappedPassword) else { return }
+        
+        viewModel.registerRequest(fullName: unrappedName, email: unwrappedEmail, password: unwrappedPassword)
     }
 }

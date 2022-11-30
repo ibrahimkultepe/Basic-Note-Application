@@ -47,6 +47,8 @@
 		9C8BB07829254D540030B9F9 /* ToastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB07729254D540030B9F9 /* ToastPresenter.swift */; };
 		9C8BB07A29254EDB0030B9F9 /* ToastWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB07929254EDB0030B9F9 /* ToastWarningView.swift */; };
 		9C8C408029000D9D002FF9A7 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */; };
+		9CA6465A2937BC5F00AB1FC8 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA646592937BC5F00AB1FC8 /* RegisterResponse.swift */; };
+		9CA6465D2937C04B00AB1FC8 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,8 @@
 		9C8BB07729254D540030B9F9 /* ToastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPresenter.swift; sourceTree = "<group>"; };
 		9C8BB07929254EDB0030B9F9 /* ToastWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastWarningView.swift; sourceTree = "<group>"; };
 		9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		9CA646592937BC5F00AB1FC8 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		D3EDDE0E0456ACAB0A51CA4D /* Pods_Basic_Note_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basic_Note_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,6 +148,7 @@
 				9C8BB06C29254AB00030B9F9 /* Protocol */,
 				9C8BB0692925481B0030B9F9 /* Constant */,
 				9C8BB063292546300030B9F9 /* Scenes */,
+				9CA646552937B7A400AB1FC8 /* Network */,
 				9C0FD6D928D5059E00F0EFF2 /* Assets.xcassets */,
 				9C0FD6DB28D5059E00F0EFF2 /* LaunchScreen.storyboard */,
 				9C8C407E29000C88002FF9A7 /* UIComponent */,
@@ -276,6 +281,23 @@
 				9C8BB07629254D3B0030B9F9 /* Toast */,
 			);
 			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		9CA646552937B7A400AB1FC8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9CA6465B2937C03B00AB1FC8 /* Model */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9CA6465B2937C03B00AB1FC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CA646592937BC5F00AB1FC8 /* RegisterResponse.swift */,
+				9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B28C10A56A82FA2E509D5484 /* Frameworks */ = {
@@ -434,7 +456,9 @@
 				9C8BB0662925465C0030B9F9 /* BaseViewController.swift in Sources */,
 				9C0FD6D128D5059800F0EFF2 /* AppDelegate.swift in Sources */,
 				9C8BB06B292548300030B9F9 /* Constant.swift in Sources */,
+				9CA6465D2937C04B00AB1FC8 /* TokenModel.swift in Sources */,
 				9C0FD6E528D505F300F0EFF2 /* RegisterViewModel.swift in Sources */,
+				9CA6465A2937BC5F00AB1FC8 /* RegisterResponse.swift in Sources */,
 				9C0FD6D328D5059800F0EFF2 /* SceneDelegate.swift in Sources */,
 				9C8BB07A29254EDB0030B9F9 /* ToastWarningView.swift in Sources */,
 			);
