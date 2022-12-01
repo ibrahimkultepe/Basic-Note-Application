@@ -10,6 +10,8 @@ import Alamofire
 
 class RegisterViewModel: BaseViewModel {
     
+    var pushToLoginVC: (() -> ())?
+        
     func registerRequest(fullName: String, email: String, password: String) {
         let parameters: [String: String] = ["full_name": fullName, "email": email, "password": password]
         let url = baseUrl + "auth/register"
@@ -23,7 +25,7 @@ class RegisterViewModel: BaseViewModel {
             do {
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode(RegisterResponse.self, from: data)
-                // TODO: Logine gidilecek
+                self.pushToLoginVC?()
             } catch {
                 self.showWarningToast?(response.error?.localizedDescription ?? "Bir hata oluştu.")
             }

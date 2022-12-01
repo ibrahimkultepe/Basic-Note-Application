@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewModel = RegisterViewModel()
         let viewController = RegisterViewController(viewModel: viewModel)
-        window?.rootViewController = viewController
+        let navController = UINavigationController(rootViewController: viewController)
+        window?.rootViewController = navController
         window?.makeKeyAndVisible()
         IQKeyboardManager.shared.enable = true
         return true
