@@ -8,7 +8,7 @@
 import UIKit
 import TinyConstraints
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController<LoginViewModel> {
 
     private let scrollView = UIScrollView()
     private let contentView = UIView()

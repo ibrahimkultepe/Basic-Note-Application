@@ -154,12 +154,13 @@ extension RegisterViewController {
     }
 }
 
+// MARK: - Subscribe
 extension RegisterViewController {
     
     private func subscribe() {
         viewModel.pushToLoginVC = { [weak self] in
             guard let self = self else { return }
-            let loginVC = LoginViewController()
+            let loginVC = LoginViewController(viewModel: LoginViewModel())
             self.navigationController?.pushViewController(loginVC, animated: true)
         }
     }

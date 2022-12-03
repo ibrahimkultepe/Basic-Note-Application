@@ -10,7 +10,7 @@ import Alamofire
 
 class RegisterViewModel: BaseViewModel {
     
-    var pushToLoginVC: (() -> ())?
+    var pushToLoginVC: VoidClosure?
         
     func registerRequest(fullName: String, email: String, password: String) {
         let parameters: [String: String] = ["full_name": fullName, "email": email, "password": password]
@@ -27,6 +27,7 @@ class RegisterViewModel: BaseViewModel {
                 let decodedData = try decoder.decode(RegisterResponse.self, from: data)
                 self.pushToLoginVC?()
             } catch {
+                print(error)
                 self.showWarningToast?(response.error?.localizedDescription ?? "Bir hata oluştu.")
             }
         }
