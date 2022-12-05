@@ -1,16 +1,15 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Basic Note Application
 //
-//  Created by İbrahim Kültepe on 16.09.2022.
+//  Created by İbrahim Kültepe on 1.12.2022.
 //
 
 import UIKit
 import TinyConstraints
-import Alamofire
 
-class RegisterViewController: BaseViewController<RegisterViewModel> {
-    
+class LoginViewController: BaseViewController<LoginViewModel> {
+
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let contentStackView: UIStackView = {
@@ -19,45 +18,44 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         stackView.spacing = 10
         return stackView
     }()
-
-    private let authSignUpView = AuthSignUpView()
     
-    private let nameAuthTextField = AuthTextField()
+    private let authSignUpView = AuthSignUpView()
+
     private let emailAuthTextField = AuthTextField()
     private let passwordAuthTextField = AuthTextField()
     
     private let passwordView = UIView()
-    
+
     private let forgotPasswordButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.appBlack, for: .normal)
         button.titleLabel?.font = .semiBold(size: 16)
         return button
     }()
-    private let signUpButton = PrimaryButton()
     
-    private let signInNowStackView: UIStackView = {
+    private let loginButton = PrimaryButton()
+
+    private let signUpStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.spacing = 4
         return stackView
     }()
-
-    private let signInNowLabel: UILabel = {
+    
+    private let signUpLabel: UILabel = {
         let label = UILabel()
         label.textColor = .appLightGray
         label.font = .systemFont(ofSize: 17, weight: .bold)
         return label
     }()
     
-    private let signInNowButton: UIButton = {
+    private let signUputton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .bold(size: 17)
         button.setTitleColor(.appLightBlue, for: .normal)
         button.backgroundColor = UIColor.white
         return button
     }()
-    
-    private let validation = Validation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,12 +66,12 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
 }
 
 // MARK: - UILayout
-extension RegisterViewController {
+extension LoginViewController {
     
     private func addSubviews() {
         view.addSubview(scrollView)
         scrollView.edgesToSuperview(excluding: .bottom ,usingSafeArea: true)
-        
+
         scrollView.addSubview(contentView)
         contentView.edgesToSuperview()
         contentView.widthToSuperview()
@@ -83,85 +81,60 @@ extension RegisterViewController {
         
         contentStackView.addArrangedSubview(authSignUpView)
         contentStackView.setCustomSpacing(50, after: authSignUpView)
-        contentStackView.addArrangedSubview(nameAuthTextField)
         contentStackView.addArrangedSubview(emailAuthTextField)
         contentStackView.addArrangedSubview(passwordAuthTextField)
         contentStackView.addArrangedSubview(passwordView)
-
+        
         passwordView.addSubview(forgotPasswordButton)
         forgotPasswordButton.trailing(to: passwordView)
         forgotPasswordButton.leadingToSuperview(relation: .equalOrGreater)
         forgotPasswordButton.topToSuperview()
         forgotPasswordButton.bottomToSuperview()
         
-        contentStackView.addArrangedSubview(signUpButton)
+        contentStackView.addArrangedSubview(loginButton)
         
-        view.addSubview(signInNowStackView)
-        signInNowStackView.topToBottom(of: scrollView)
-        signInNowStackView.centerXToSuperview()
-        signInNowStackView.leadingToSuperview(relation: .equalOrGreater)
-        signInNowStackView.trailingToSuperview(relation: .equalOrLess)
-        signInNowStackView.bottomToSuperview(usingSafeArea: true)
-        signInNowStackView.addArrangedSubview(signInNowLabel)
-        signInNowStackView.addArrangedSubview(signInNowButton)
+        view.addSubview(signUpStackView)
+        signUpStackView.topToBottom(of: scrollView)
+        signUpStackView.centerXToSuperview()
+        signUpStackView.leadingToSuperview(relation: .equalOrGreater)
+        signUpStackView.trailingToSuperview(relation: .equalOrLess)
+        signUpStackView.bottomToSuperview(usingSafeArea: true)
+        signUpStackView.addArrangedSubview(signUpLabel)
+        signUpStackView.addArrangedSubview(signUputton)
     }
 }
 
 // MARK: - Configure
-extension RegisterViewController {
+extension LoginViewController {
     
-    func configureContent() {
+    private func configureContent() {
         view.backgroundColor = .white
-        signUpButton.addTarget(self, action: #selector(signUpButtonAction), for: .touchUpInside)
+        navigationItem.hidesBackButton = true
+        loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
         passwordAuthTextField.isSecureTextEntry = true
-        subscribe()
     }
 }
 
 // MARK: - SetLocalize
-extension RegisterViewController {
+extension LoginViewController {
     
-    func setLocalize() {
-        authSignUpView.title = "Sign Up"
+    private func setLocalize() {
+        authSignUpView.title = "Login"
         authSignUpView.subtitle = "Login or sign up to continue using our app."
-        nameAuthTextField.placeholder = "Full Name"
-        emailAuthTextField.placeholder = "Email Address"
+        emailAuthTextField.placeholder = "Email Adresses"
         passwordAuthTextField.placeholder = "Password"
-        signInNowLabel.text = "Already have an account?"
         forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
-        signInNowButton.setTitle(" Sign In Now", for: .normal)
-        signUpButton.setTitle("Sign Up", for: .normal)
-
+        loginButton.setTitle("Login", for: .normal)
+        signUpLabel.text = "New user?"
+        signUputton.setTitle("Sign up now", for: .normal)
     }
 }
 
 // MARK: - Actions
-extension RegisterViewController {
+extension LoginViewController {
     
     @objc
-    private func signUpButtonAction() {
-       guard
-        let unrappedName = nameAuthTextField.text,
-        let unwrappedEmail = emailAuthTextField.text,
-        let unwrappedPassword = passwordAuthTextField.text
-        else { return }
+    private func loginButtonAction() {
         
-        guard validation.isValidName(unrappedName) else { return }
-        guard validation.isValidEmail(unwrappedEmail) else { return }
-        guard validation.isValidPassword(unwrappedPassword) else { return }
-        
-        viewModel.registerRequest(fullName: unrappedName, email: unwrappedEmail, password: unwrappedPassword)
-    }
-}
-
-// MARK: - Subscribe
-extension RegisterViewController {
-    
-    private func subscribe() {
-        viewModel.pushToLoginVC = { [weak self] in
-            guard let self = self else { return }
-            let loginVC = LoginViewController(viewModel: LoginViewModel())
-            self.navigationController?.pushViewController(loginVC, animated: true)
-        }
     }
 }

@@ -11,7 +11,6 @@ import UIKit
 class PrimaryButton: UIButton {
     
     func configureContents() {
-        setTitle("Sign Up", for: .normal)
         titleLabel?.font = .bold(size: 20)
         setTitleColor(.appLightBlue, for: .normal)
         backgroundColor = .appHeavyBlue
