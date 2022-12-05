@@ -9,7 +9,7 @@ import UIKit
 import TinyConstraints
 
 class LoginViewController: BaseViewController<LoginViewModel> {
-
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let contentStackView: UIStackView = {
@@ -19,13 +19,13 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         return stackView
     }()
     
-    private let authSignUpView = AuthSignUpView()
-
+    private let loginView = AuthView()
+    
     private let emailAuthTextField = AuthTextField()
     private let passwordAuthTextField = AuthTextField()
     
     private let passwordView = UIView()
-
+    
     private let forgotPasswordButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.appBlack, for: .normal)
@@ -34,7 +34,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     }()
     
     private let loginButton = PrimaryButton()
-
+    
     private let signUpStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -71,7 +71,7 @@ extension LoginViewController {
     private func addSubviews() {
         view.addSubview(scrollView)
         scrollView.edgesToSuperview(excluding: .bottom ,usingSafeArea: true)
-
+        
         scrollView.addSubview(contentView)
         contentView.edgesToSuperview()
         contentView.widthToSuperview()
@@ -79,8 +79,8 @@ extension LoginViewController {
         contentView.addSubview(contentStackView)
         contentStackView.edgesToSuperview(insets: .init(top: 100, left: 10, bottom: 0, right: 10))
         
-        contentStackView.addArrangedSubview(authSignUpView)
-        contentStackView.setCustomSpacing(50, after: authSignUpView)
+        contentStackView.addArrangedSubview(loginView)
+        contentStackView.setCustomSpacing(50, after: loginView)
         contentStackView.addArrangedSubview(emailAuthTextField)
         contentStackView.addArrangedSubview(passwordAuthTextField)
         contentStackView.addArrangedSubview(passwordView)
@@ -111,6 +111,7 @@ extension LoginViewController {
         view.backgroundColor = .white
         navigationItem.hidesBackButton = true
         loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonAction), for: .touchUpInside)
         passwordAuthTextField.isSecureTextEntry = true
     }
 }
@@ -119,8 +120,8 @@ extension LoginViewController {
 extension LoginViewController {
     
     private func setLocalize() {
-        authSignUpView.title = "Login"
-        authSignUpView.subtitle = "Login or sign up to continue using our app."
+        loginView.title = "Login"
+        loginView.subtitle = "Login or sign up to continue using our app."
         emailAuthTextField.placeholder = "Email Adresses"
         passwordAuthTextField.placeholder = "Password"
         forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
@@ -136,5 +137,11 @@ extension LoginViewController {
     @objc
     private func loginButtonAction() {
         
+    }
+    
+    @objc
+    private func forgotPasswordButtonAction() {
+        let forgotPasswordVC = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel())
+        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
 }

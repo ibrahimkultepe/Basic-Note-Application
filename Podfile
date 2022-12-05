@@ -15,7 +15,6 @@ $MobilliumBuilders = pod 'MobilliumBuilders', '~> 1.4'
 $Kingfisher = pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git', :branch => 'version6-xcode13'
 $SwiftEntryKit = pod 'SwiftEntryKit', '~> 1.2'
 $KeychainSwift = pod 'KeychainSwift', '~> 19.0'
-$Parse = pod 'Parse'     
 
 target 'Basic Note Application' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -26,7 +25,6 @@ target 'Basic Note Application' do
   $Alamofire
   
   # Helper
-  $Parse
   $TinyConstraints
   $SwiftLint
   $IQKeyboardManagerSwift

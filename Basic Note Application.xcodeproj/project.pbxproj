@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B6B418E09CF4B57615B645D /* Pods_Basic_Note_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EDDE0E0456ACAB0A51CA4D /* Pods_Basic_Note_Application.framework */; };
 		9C0FD6D128D5059800F0EFF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FD6D028D5059800F0EFF2 /* AppDelegate.swift */; };
 		9C0FD6D328D5059800F0EFF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FD6D228D5059800F0EFF2 /* SceneDelegate.swift */; };
 		9C0FD6D528D5059800F0EFF2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FD6D428D5059800F0EFF2 /* RegisterViewController.swift */; };
@@ -36,7 +35,7 @@
 		9C3CBFD72939304700AFDFFB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CBFD62939304700AFDFFB /* LoginViewController.swift */; };
 		9C3CBFD92939306200AFDFFB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CBFD82939306200AFDFFB /* LoginViewModel.swift */; };
 		9C581BD5292C176C00CA381A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C581BD4292C176C00CA381A /* Validation.swift */; };
-		9C6AF1FA290B1888007E20E9 /* AuthSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6AF1F9290B1888007E20E9 /* AuthSignUpView.swift */; };
+		9C6AF1FA290B1888007E20E9 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6AF1F9290B1888007E20E9 /* AuthView.swift */; };
 		9C6B55852901E26100365FA9 /* AuthTextField .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6B55842901E26100365FA9 /* AuthTextField .swift */; };
 		9C751396292E8CD2009D1F01 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C751395292E8CD2009D1F01 /* UIColor+Extensions.swift */; };
 		9C8862272926BE8E00EA45EC /* LoadingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8862262926BE8E00EA45EC /* LoadingProtocol.swift */; };
@@ -51,11 +50,13 @@
 		9C8C408029000D9D002FF9A7 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */; };
 		9CA6465A2937BC5F00AB1FC8 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA646592937BC5F00AB1FC8 /* RegisterResponse.swift */; };
 		9CA6465D2937C04B00AB1FC8 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */; };
+		9CEAFC3D293E8F40000D9884 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAFC3C293E8F40000D9884 /* ForgotPasswordViewController.swift */; };
+		9CEAFC3F293E8F57000D9884 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAFC3E293E8F57000D9884 /* ForgotPasswordViewModel.swift */; };
+		C075E9D3C632CB2A9688241E /* Pods_Basic_Note_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4BBB47B413F11FF68F5261D /* Pods_Basic_Note_Application.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7BCFB770271DDA9790F5CFBE /* Pods-Basic Note Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basic Note Application.debug.xcconfig"; path = "Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application.debug.xcconfig"; sourceTree = "<group>"; };
-		968F56068F5F8D1C0489C415 /* Pods-Basic Note Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basic Note Application.release.xcconfig"; path = "Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application.release.xcconfig"; sourceTree = "<group>"; };
+		1DDE3830E3EEC49E58697523 /* Pods-Basic Note Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basic Note Application.debug.xcconfig"; path = "Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application.debug.xcconfig"; sourceTree = "<group>"; };
 		9C0FD6CD28D5059800F0EFF2 /* Basic Note Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basic Note Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0FD6D028D5059800F0EFF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C0FD6D228D5059800F0EFF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,7 +87,7 @@
 		9C3CBFD62939304700AFDFFB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9C3CBFD82939306200AFDFFB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9C581BD4292C176C00CA381A /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
-		9C6AF1F9290B1888007E20E9 /* AuthSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignUpView.swift; sourceTree = "<group>"; };
+		9C6AF1F9290B1888007E20E9 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		9C6B55842901E26100365FA9 /* AuthTextField .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthTextField .swift"; sourceTree = "<group>"; };
 		9C751395292E8CD2009D1F01 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		9C8862262926BE8E00EA45EC /* LoadingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingProtocol.swift; sourceTree = "<group>"; };
@@ -101,7 +102,10 @@
 		9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		9CA646592937BC5F00AB1FC8 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
-		D3EDDE0E0456ACAB0A51CA4D /* Pods_Basic_Note_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basic_Note_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CEAFC3C293E8F40000D9884 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		9CEAFC3E293E8F57000D9884 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		E8E797E5A6BB9B5EB3846D9A /* Pods-Basic Note Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basic Note Application.release.xcconfig"; path = "Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application.release.xcconfig"; sourceTree = "<group>"; };
+		F4BBB47B413F11FF68F5261D /* Pods_Basic_Note_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basic_Note_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B6B418E09CF4B57615B645D /* Pods_Basic_Note_Application.framework in Frameworks */,
+				C075E9D3C632CB2A9688241E /* Pods_Basic_Note_Application.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,10 +123,18 @@
 		32B94EA9B86591D378B7DF0E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7BCFB770271DDA9790F5CFBE /* Pods-Basic Note Application.debug.xcconfig */,
-				968F56068F5F8D1C0489C415 /* Pods-Basic Note Application.release.xcconfig */,
+				1DDE3830E3EEC49E58697523 /* Pods-Basic Note Application.debug.xcconfig */,
+				E8E797E5A6BB9B5EB3846D9A /* Pods-Basic Note Application.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		5F59F8310AFC93032861E00B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4BBB47B413F11FF68F5261D /* Pods_Basic_Note_Application.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9C0FD6C428D5059700F0EFF2 = {
@@ -131,7 +143,7 @@
 				9C0FD6CF28D5059800F0EFF2 /* Basic Note Application */,
 				9C0FD6CE28D5059800F0EFF2 /* Products */,
 				32B94EA9B86591D378B7DF0E /* Pods */,
-				B28C10A56A82FA2E509D5484 /* Frameworks */,
+				5F59F8310AFC93032861E00B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -227,6 +239,7 @@
 			children = (
 				9C8862292926C7E900EA45EC /* Register */,
 				9C3CBFD52939301D00AFDFFB /* Login */,
+				9CEAFC3B293E8F15000D9884 /* ForgotPassword */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -288,7 +301,7 @@
 			children = (
 				9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */,
 				9C6B55842901E26100365FA9 /* AuthTextField .swift */,
-				9C6AF1F9290B1888007E20E9 /* AuthSignUpView.swift */,
+				9C6AF1F9290B1888007E20E9 /* AuthView.swift */,
 				9C8BB07029254B340030B9F9 /* ActivityIndicator.swift */,
 				9C8BB07229254BB80030B9F9 /* ActivityIndicatorProtocol.swift */,
 				9C8BB07429254BF10030B9F9 /* ActivityIndicatorView.swift */,
@@ -314,12 +327,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B28C10A56A82FA2E509D5484 /* Frameworks */ = {
+		9CEAFC3B293E8F15000D9884 /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
-				D3EDDE0E0456ACAB0A51CA4D /* Pods_Basic_Note_Application.framework */,
+				9CEAFC3C293E8F40000D9884 /* ForgotPasswordViewController.swift */,
+				9CEAFC3E293E8F57000D9884 /* ForgotPasswordViewModel.swift */,
 			);
-			name = Frameworks;
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,11 +343,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C0FD6E128D5059E00F0EFF2 /* Build configuration list for PBXNativeTarget "Basic Note Application" */;
 			buildPhases = (
-				D1E0E895A2135D90A85446A5 /* [CP] Check Pods Manifest.lock */,
+				8D99A83FB38CD804672B7AF2 /* [CP] Check Pods Manifest.lock */,
 				9C0FD6C928D5059800F0EFF2 /* Sources */,
 				9C0FD6CA28D5059800F0EFF2 /* Frameworks */,
 				9C0FD6CB28D5059800F0EFF2 /* Resources */,
-				6FE54E9694D63CB92CAFC83A /* [CP] Embed Pods Frameworks */,
+				DB389983322E94D36317E0F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -408,24 +422,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6FE54E9694D63CB92CAFC83A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D1E0E895A2135D90A85446A5 /* [CP] Check Pods Manifest.lock */ = {
+		8D99A83FB38CD804672B7AF2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -447,6 +444,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DB389983322E94D36317E0F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -460,8 +474,10 @@
 				9C8BB0682925466A0030B9F9 /* BaseViewModel.swift in Sources */,
 				9C8BB07829254D540030B9F9 /* ToastPresenter.swift in Sources */,
 				9C581BD5292C176C00CA381A /* Validation.swift in Sources */,
+				9CEAFC3F293E8F57000D9884 /* ForgotPasswordViewModel.swift in Sources */,
 				9C28271028EF755200806BC2 /* FontExtension.swift in Sources */,
-				9C6AF1FA290B1888007E20E9 /* AuthSignUpView.swift in Sources */,
+				9C6AF1FA290B1888007E20E9 /* AuthView.swift in Sources */,
+				9CEAFC3D293E8F40000D9884 /* ForgotPasswordViewController.swift in Sources */,
 				9C8BB07129254B340030B9F9 /* ActivityIndicator.swift in Sources */,
 				9C0FD6D528D5059800F0EFF2 /* RegisterViewController.swift in Sources */,
 				9C8BB07529254BF10030B9F9 /* ActivityIndicatorView.swift in Sources */,
@@ -610,7 +626,7 @@
 		};
 		9C0FD6E228D5059E00F0EFF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BCFB770271DDA9790F5CFBE /* Pods-Basic Note Application.debug.xcconfig */;
+			baseConfigurationReference = 1DDE3830E3EEC49E58697523 /* Pods-Basic Note Application.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -639,7 +655,7 @@
 		};
 		9C0FD6E328D5059E00F0EFF2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 968F56068F5F8D1C0489C415 /* Pods-Basic Note Application.release.xcconfig */;
+			baseConfigurationReference = E8E797E5A6BB9B5EB3846D9A /* Pods-Basic Note Application.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

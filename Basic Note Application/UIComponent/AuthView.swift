@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import TinyConstraints
 
-class AuthSignUpView: UIView {
+class AuthView: UIView {
     
     var title: String? {
         didSet {
@@ -43,6 +43,7 @@ class AuthSignUpView: UIView {
         label.textColor = .appLightGray
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 17, weight: .light)
+        label.numberOfLines = 0
         return label
     }()
     
