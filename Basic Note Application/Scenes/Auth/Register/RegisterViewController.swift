@@ -20,7 +20,7 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         return stackView
     }()
 
-    private let authSignUpView = AuthSignUpView()
+    private let authSignUpView = AuthHeaderView()
     
     private let nameAuthTextField = AuthTextField()
     private let emailAuthTextField = AuthTextField()
@@ -113,6 +113,7 @@ extension RegisterViewController {
     func configureContent() {
         view.backgroundColor = .white
         signUpButton.addTarget(self, action: #selector(signUpButtonAction), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonAction), for: .touchUpInside)
         passwordAuthTextField.isSecureTextEntry = true
         subscribe()
     }
@@ -151,6 +152,12 @@ extension RegisterViewController {
         guard validation.isValidPassword(unwrappedPassword) else { return }
         
         viewModel.registerRequest(fullName: unrappedName, email: unwrappedEmail, password: unwrappedPassword)
+    }
+    
+    @objc
+    private func forgotPasswordButtonAction() {
+        let forgotPasswordVC = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel())
+        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
 }
 
