@@ -35,7 +35,7 @@
 		9C3CBFD72939304700AFDFFB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CBFD62939304700AFDFFB /* LoginViewController.swift */; };
 		9C3CBFD92939306200AFDFFB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CBFD82939306200AFDFFB /* LoginViewModel.swift */; };
 		9C581BD5292C176C00CA381A /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C581BD4292C176C00CA381A /* Validation.swift */; };
-		9C6AF1FA290B1888007E20E9 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6AF1F9290B1888007E20E9 /* AuthView.swift */; };
+		9C6AF1FA290B1888007E20E9 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6AF1F9290B1888007E20E9 /* AuthHeaderView.swift */; };
 		9C6B55852901E26100365FA9 /* AuthTextField .swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6B55842901E26100365FA9 /* AuthTextField .swift */; };
 		9C751396292E8CD2009D1F01 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C751395292E8CD2009D1F01 /* UIColor+Extensions.swift */; };
 		9C8862272926BE8E00EA45EC /* LoadingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8862262926BE8E00EA45EC /* LoadingProtocol.swift */; };
@@ -87,7 +87,7 @@
 		9C3CBFD62939304700AFDFFB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9C3CBFD82939306200AFDFFB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9C581BD4292C176C00CA381A /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
-		9C6AF1F9290B1888007E20E9 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		9C6AF1F9290B1888007E20E9 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		9C6B55842901E26100365FA9 /* AuthTextField .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthTextField .swift"; sourceTree = "<group>"; };
 		9C751395292E8CD2009D1F01 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		9C8862262926BE8E00EA45EC /* LoadingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingProtocol.swift; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 			children = (
 				9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */,
 				9C6B55842901E26100365FA9 /* AuthTextField .swift */,
-				9C6AF1F9290B1888007E20E9 /* AuthView.swift */,
+				9C6AF1F9290B1888007E20E9 /* AuthHeaderView.swift */,
 				9C8BB07029254B340030B9F9 /* ActivityIndicator.swift */,
 				9C8BB07229254BB80030B9F9 /* ActivityIndicatorProtocol.swift */,
 				9C8BB07429254BF10030B9F9 /* ActivityIndicatorView.swift */,
@@ -476,7 +476,7 @@
 				9C581BD5292C176C00CA381A /* Validation.swift in Sources */,
 				9CEAFC3F293E8F57000D9884 /* ForgotPasswordViewModel.swift in Sources */,
 				9C28271028EF755200806BC2 /* FontExtension.swift in Sources */,
-				9C6AF1FA290B1888007E20E9 /* AuthView.swift in Sources */,
+				9C6AF1FA290B1888007E20E9 /* AuthHeaderView.swift in Sources */,
 				9CEAFC3D293E8F40000D9884 /* ForgotPasswordViewController.swift in Sources */,
 				9C8BB07129254B340030B9F9 /* ActivityIndicator.swift in Sources */,
 				9C0FD6D528D5059800F0EFF2 /* RegisterViewController.swift in Sources */,

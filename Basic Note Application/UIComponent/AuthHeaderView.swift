@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import TinyConstraints
 
-class AuthView: UIView {
+class AuthHeaderView: UIView {
     
     var title: String? {
         didSet {

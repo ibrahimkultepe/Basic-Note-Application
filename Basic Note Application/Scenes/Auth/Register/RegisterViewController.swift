@@ -20,7 +20,7 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         return stackView
     }()
 
-    private let authSignUpView = AuthView()
+    private let authSignUpView = AuthHeaderView()
     
     private let nameAuthTextField = AuthTextField()
     private let emailAuthTextField = AuthTextField()

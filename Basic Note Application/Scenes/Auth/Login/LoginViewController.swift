@@ -19,7 +19,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         return stackView
     }()
     
-    private let loginView = AuthView()
+    private let loginView = AuthHeaderView()
     
     private let emailAuthTextField = AuthTextField()
     private let passwordAuthTextField = AuthTextField()

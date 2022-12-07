@@ -18,7 +18,7 @@ class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewModel> 
         return stackView
     }()
     
-    private let forgotPasswordView = AuthView()
+    private let forgotPasswordView = AuthHeaderView()
     
     private let emailAuthTextField = AuthTextField()
     
