@@ -57,6 +57,8 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         return button
     }()
     
+    private let validation = Validation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -135,6 +137,14 @@ extension LoginViewController {
     
     @objc
     private func loginButtonAction() {
+        guard
+            let unwrappedEmail = emailAuthTextField.text,
+            let unwrappedPassword = passwordAuthTextField.text
+        else { return }
         
+        guard validation.isValidEmail(unwrappedEmail) else { return }
+        guard validation.isValidPassword(unwrappedPassword) else { return }
+        
+        viewModel.loginRequest(email: unwrappedEmail, password: unwrappedPassword)
     }
 }

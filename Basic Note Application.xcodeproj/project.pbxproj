@@ -49,7 +49,7 @@
 		9C8BB07829254D540030B9F9 /* ToastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB07729254D540030B9F9 /* ToastPresenter.swift */; };
 		9C8BB07A29254EDB0030B9F9 /* ToastWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BB07929254EDB0030B9F9 /* ToastWarningView.swift */; };
 		9C8C408029000D9D002FF9A7 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */; };
-		9CA6465A2937BC5F00AB1FC8 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA646592937BC5F00AB1FC8 /* RegisterResponse.swift */; };
+		9CA6465A2937BC5F00AB1FC8 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA646592937BC5F00AB1FC8 /* AuthResponse.swift */; };
 		9CA6465D2937C04B00AB1FC8 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +99,7 @@
 		9C8BB07729254D540030B9F9 /* ToastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastPresenter.swift; sourceTree = "<group>"; };
 		9C8BB07929254EDB0030B9F9 /* ToastWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastWarningView.swift; sourceTree = "<group>"; };
 		9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		9CA646592937BC5F00AB1FC8 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		9CA646592937BC5F00AB1FC8 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		D3EDDE0E0456ACAB0A51CA4D /* Pods_Basic_Note_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basic_Note_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -308,7 +308,7 @@
 		9CA6465B2937C03B00AB1FC8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9CA646592937BC5F00AB1FC8 /* RegisterResponse.swift */,
+				9CA646592937BC5F00AB1FC8 /* AuthResponse.swift */,
 				9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */,
 			);
 			path = Model;
@@ -474,7 +474,7 @@
 				9C8BB06B292548300030B9F9 /* Constant.swift in Sources */,
 				9CA6465D2937C04B00AB1FC8 /* TokenModel.swift in Sources */,
 				9C0FD6E528D505F300F0EFF2 /* RegisterViewModel.swift in Sources */,
-				9CA6465A2937BC5F00AB1FC8 /* RegisterResponse.swift in Sources */,
+				9CA6465A2937BC5F00AB1FC8 /* AuthResponse.swift in Sources */,
 				9C0FD6D328D5059800F0EFF2 /* SceneDelegate.swift in Sources */,
 				9C8BB07A29254EDB0030B9F9 /* ToastWarningView.swift in Sources */,
 			);

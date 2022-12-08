@@ -24,7 +24,7 @@ class RegisterViewModel: BaseViewModel {
             
             do {
                 let decoder = JSONDecoder()
-                let decodedData = try decoder.decode(RegisterResponse.self, from: data)
+                let decodedData = try decoder.decode(AuthResponse.self, from: data)
                 self.pushToLoginVC?()
             } catch {
                 print(error)
