@@ -24,7 +24,6 @@ class LoginViewModel: BaseViewModel {
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode(AuthResponse.self, from: data)
             } catch {
-                print(error)
                 self.showWarningToast?(response.error?.localizedDescription ?? "Bir Hata oluştu.")
             }
         }

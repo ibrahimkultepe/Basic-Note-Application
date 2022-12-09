@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B6B418E09CF4B57615B645D /* Pods_Basic_Note_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EDDE0E0456ACAB0A51CA4D /* Pods_Basic_Note_Application.framework */; };
 		9C0FD6D128D5059800F0EFF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FD6D028D5059800F0EFF2 /* AppDelegate.swift */; };
 		9C0FD6D328D5059800F0EFF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FD6D228D5059800F0EFF2 /* SceneDelegate.swift */; };
 		9C0FD6D528D5059800F0EFF2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0FD6D428D5059800F0EFF2 /* RegisterViewController.swift */; };
@@ -51,11 +50,12 @@
 		9C8C408029000D9D002FF9A7 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */; };
 		9CA6465A2937BC5F00AB1FC8 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA646592937BC5F00AB1FC8 /* AuthResponse.swift */; };
 		9CA6465D2937C04B00AB1FC8 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */; };
+		DEC0B15EB5C5C0185550CB97 /* Pods_Basic_Note_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57282E995D15BF2CA80C3569 /* Pods_Basic_Note_Application.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7BCFB770271DDA9790F5CFBE /* Pods-Basic Note Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basic Note Application.debug.xcconfig"; path = "Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application.debug.xcconfig"; sourceTree = "<group>"; };
-		968F56068F5F8D1C0489C415 /* Pods-Basic Note Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basic Note Application.release.xcconfig"; path = "Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application.release.xcconfig"; sourceTree = "<group>"; };
+		1DDD16EF3766F30812F7B0C2 /* Pods-Basic Note Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basic Note Application.release.xcconfig"; path = "Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application.release.xcconfig"; sourceTree = "<group>"; };
+		57282E995D15BF2CA80C3569 /* Pods_Basic_Note_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basic_Note_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0FD6CD28D5059800F0EFF2 /* Basic Note Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Basic Note Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0FD6D028D5059800F0EFF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C0FD6D228D5059800F0EFF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		9CA646592937BC5F00AB1FC8 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
-		D3EDDE0E0456ACAB0A51CA4D /* Pods_Basic_Note_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basic_Note_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5B516908C9AA714B17E7A29 /* Pods-Basic Note Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basic Note Application.debug.xcconfig"; path = "Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B6B418E09CF4B57615B645D /* Pods_Basic_Note_Application.framework in Frameworks */,
+				DEC0B15EB5C5C0185550CB97 /* Pods_Basic_Note_Application.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +119,8 @@
 		32B94EA9B86591D378B7DF0E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7BCFB770271DDA9790F5CFBE /* Pods-Basic Note Application.debug.xcconfig */,
-				968F56068F5F8D1C0489C415 /* Pods-Basic Note Application.release.xcconfig */,
+				C5B516908C9AA714B17E7A29 /* Pods-Basic Note Application.debug.xcconfig */,
+				1DDD16EF3766F30812F7B0C2 /* Pods-Basic Note Application.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -131,7 +131,7 @@
 				9C0FD6CF28D5059800F0EFF2 /* Basic Note Application */,
 				9C0FD6CE28D5059800F0EFF2 /* Products */,
 				32B94EA9B86591D378B7DF0E /* Pods */,
-				B28C10A56A82FA2E509D5484 /* Frameworks */,
+				E7B8B075378ADB9BD2B79EB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -314,10 +314,10 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B28C10A56A82FA2E509D5484 /* Frameworks */ = {
+		E7B8B075378ADB9BD2B79EB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3EDDE0E0456ACAB0A51CA4D /* Pods_Basic_Note_Application.framework */,
+				57282E995D15BF2CA80C3569 /* Pods_Basic_Note_Application.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -329,11 +329,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C0FD6E128D5059E00F0EFF2 /* Build configuration list for PBXNativeTarget "Basic Note Application" */;
 			buildPhases = (
-				D1E0E895A2135D90A85446A5 /* [CP] Check Pods Manifest.lock */,
+				A84F3E0FADE96FD21A49A971 /* [CP] Check Pods Manifest.lock */,
 				9C0FD6C928D5059800F0EFF2 /* Sources */,
 				9C0FD6CA28D5059800F0EFF2 /* Frameworks */,
 				9C0FD6CB28D5059800F0EFF2 /* Resources */,
-				6FE54E9694D63CB92CAFC83A /* [CP] Embed Pods Frameworks */,
+				30803741FC134904B4B3D8B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -408,9 +408,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6FE54E9694D63CB92CAFC83A /* [CP] Embed Pods Frameworks */ = {
+		30803741FC134904B4B3D8B8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
@@ -425,7 +425,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basic Note Application/Pods-Basic Note Application-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D1E0E895A2135D90A85446A5 /* [CP] Check Pods Manifest.lock */ = {
+		A84F3E0FADE96FD21A49A971 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -610,7 +610,7 @@
 		};
 		9C0FD6E228D5059E00F0EFF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BCFB770271DDA9790F5CFBE /* Pods-Basic Note Application.debug.xcconfig */;
+			baseConfigurationReference = C5B516908C9AA714B17E7A29 /* Pods-Basic Note Application.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -639,7 +639,7 @@
 		};
 		9C0FD6E328D5059E00F0EFF2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 968F56068F5F8D1C0489C415 /* Pods-Basic Note Application.release.xcconfig */;
+			baseConfigurationReference = 1DDD16EF3766F30812F7B0C2 /* Pods-Basic Note Application.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
