@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Alamofire
-import KeychainSwift
 
 class NoteListViewController: BaseViewController<NoteListViewModel> {
         
@@ -26,26 +24,16 @@ class NoteListViewController: BaseViewController<NoteListViewModel> {
         let button = UIButton()
         button.backgroundColor = .appLightBlue
         button.setTitleColor(.white, for: .normal)
-        button.width(142)
-        button.height(41)
         return button
     }()
     
     private let noteTableViewCell = NoteTableViewCell()
-    
-    private let keyChainSwift = KeychainSwift()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         configureContent()
         setLocalize()
-        viewModel.addNotesRequest(title: "Lose Yourself", note: """
-                        No more games, I'ma change what you call rage
-                        Tear this motherfuckin' roof off like two dogs caged
-                        I was playin' in the beginning, the mood all changed
-                        I've been chewed up and spit out and booed off stage
-                        """)
         viewModel.getMyNotes()
     }
 }

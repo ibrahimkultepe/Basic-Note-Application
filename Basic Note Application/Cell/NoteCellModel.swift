@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NoteModel {
+class NoteCellModel {
     let id: Int?
     let title: String?
     let note: String?

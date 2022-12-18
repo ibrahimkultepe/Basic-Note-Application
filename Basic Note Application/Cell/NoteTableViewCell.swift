@@ -10,7 +10,7 @@ import UIKit
 class NoteTableViewCell: UITableViewCell {
     
     static let identifier: String = "CustomTableViewCell"
-    var notes: NoteModel?
+    var notes: NoteCellModel?
 
 
     private let stackView: UIStackView = {
@@ -51,9 +51,8 @@ class NoteTableViewCell: UITableViewCell {
         stackView.addArrangedSubview(subtitleLabel)
     }
     
-    func setCellItem(viewModel: NoteModel) {
+    func setCellItem(viewModel: NoteCellModel) {
         self.notes = viewModel
-        let url = baseUrl + "users/me/notes?page=1"
         self.titleLabel.text = notes?.title
         self.subtitleLabel.text = notes?.note
     }
