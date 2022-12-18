@@ -114,6 +114,7 @@ extension LoginViewController {
         navigationItem.hidesBackButton = true
         loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
         passwordAuthTextField.isSecureTextEntry = true
+        subscribe()
     }
 }
 
@@ -146,5 +147,17 @@ extension LoginViewController {
         guard validation.isValidPassword(unwrappedPassword) else { return }
         
         viewModel.loginRequest(email: unwrappedEmail, password: unwrappedPassword)
+    }
+}
+
+// MARK: - Subscribe
+extension LoginViewController {
+    
+    private func subscribe() {
+        viewModel.pushToNoteVC = { [weak self] in
+            guard let self = self else { return }
+            let noteVC = NoteListViewController(viewModel: NoteListViewModel())
+            self.navigationController?.pushViewController(noteVC, animated: true)
+        }
     }
 }

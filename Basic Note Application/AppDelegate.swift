@@ -24,13 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
         IQKeyboardManager.shared.enable = true
-        // MARK: - Back4app Network Test
-        let configuration = ParseClientConfiguration {
-            $0.applicationId = "R0gyHddyhjaxvQeZrJRDhCF3MSwulWgfKikaofNL"
-            $0.clientKey = "mUCDl9NFQOIyJTuTZxSRm4cYMe7aiTgCdeOLyuDo"
-            $0.server = "https://parseapi.back4app.com"
-        }
-        Parse.initialize(with: configuration)
         return true
     }
 

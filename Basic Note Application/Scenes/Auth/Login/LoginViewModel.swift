@@ -7,9 +7,13 @@
 
 import Foundation
 import Alamofire
+import KeychainSwift
 
 class LoginViewModel: BaseViewModel {
-        
+    
+    var pushToNoteVC: VoidClosure?
+    let keychain = KeychainSwift()
+
     func loginRequest(email: String, password: String) {
         let parameters: [String: String] = ["email": email, "password": password]
         let url = baseUrl + "auth/login"
@@ -23,6 +27,11 @@ class LoginViewModel: BaseViewModel {
             do {
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode(AuthResponse.self, from: data)
+                
+                guard let accessToken = decodedData.data?.accessToken else { return }
+                self.keychain.set(accessToken, forKey: "accessToken")
+                
+                self.pushToNoteVC?()
             } catch {
                 self.showWarningToast?(response.error?.localizedDescription ?? "Bir Hata oluştu.")
             }
