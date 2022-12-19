@@ -10,8 +10,7 @@ import UIKit
 class NoteTableViewCell: UITableViewCell {
     
     static let identifier: String = "CustomTableViewCell"
-    var notes: NoteCellModel?
-
+    weak var viewModel: NoteCellModel?
 
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -52,8 +51,8 @@ class NoteTableViewCell: UITableViewCell {
     }
     
     func setCellItem(viewModel: NoteCellModel) {
-        self.notes = viewModel
-        self.titleLabel.text = notes?.title
-        self.subtitleLabel.text = notes?.note
+        self.viewModel = viewModel
+        self.titleLabel.text = viewModel.title
+        self.subtitleLabel.text = viewModel.note
     }
 }

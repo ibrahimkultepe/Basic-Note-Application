@@ -27,8 +27,6 @@ class NoteListViewController: BaseViewController<NoteListViewModel> {
         return button
     }()
     
-    private let noteTableViewCell = NoteTableViewCell()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -99,6 +97,7 @@ extension NoteListViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension NoteListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,6 +118,7 @@ extension NoteListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension NoteListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -128,7 +128,6 @@ extension NoteListViewController: UITableViewDelegate {
         }
         let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] (action, view, handler) in
             guard let self = self else { return }
-            
         }
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         return configuration

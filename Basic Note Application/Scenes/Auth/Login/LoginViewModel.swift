@@ -11,7 +11,7 @@ import KeychainSwift
 
 class LoginViewModel: BaseViewModel {
     
-    private var pushToNoteVC: VoidClosure?
+    var pushToNoteVC: VoidClosure?
     private let keychain = KeychainSwift()
 
     func loginRequest(email: String, password: String) {

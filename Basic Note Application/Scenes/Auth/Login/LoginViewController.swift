@@ -9,7 +9,7 @@ import UIKit
 import TinyConstraints
 
 class LoginViewController: BaseViewController<LoginViewModel> {
-
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let contentStackView: UIStackView = {
@@ -20,12 +20,12 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     }()
     
     private let authSignUpView = AuthSignUpView()
-
+    
     private let emailAuthTextField = AuthTextField()
     private let passwordAuthTextField = AuthTextField()
     
     private let passwordView = UIView()
-
+    
     private let forgotPasswordButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.appBlack, for: .normal)
@@ -34,7 +34,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
     }()
     
     private let loginButton = PrimaryButton()
-
+    
     private let signUpStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -73,7 +73,7 @@ extension LoginViewController {
     private func addSubviews() {
         view.addSubview(scrollView)
         scrollView.edgesToSuperview(excluding: .bottom ,usingSafeArea: true)
-
+        
         scrollView.addSubview(contentView)
         contentView.edgesToSuperview()
         contentView.widthToSuperview()
@@ -114,7 +114,11 @@ extension LoginViewController {
         navigationItem.hidesBackButton = true
         loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
         passwordAuthTextField.isSecureTextEntry = true
+        emailAuthTextField.autocapitalizationType = .none
         subscribe()
+        emailAuthTextField.delegate = self
+        passwordAuthTextField.delegate = self
+        handleTextField()
     }
 }
 
@@ -158,6 +162,27 @@ extension LoginViewController {
             guard let self = self else { return }
             let noteVC = NoteListViewController(viewModel: NoteListViewModel())
             self.navigationController?.pushViewController(noteVC, animated: true)
+        }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+    
+    private func handleTextField() {
+        emailAuthTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordAuthTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+    }
+    
+    @objc
+    func textFieldDidChange() {
+        switch (emailAuthTextField.text?.isEmpty, passwordAuthTextField.text?.isEmpty) {
+        case (false, false):
+            loginButton.setTitleColor(.white, for: .normal)
+            loginButton.backgroundColor = .appLightBlue
+        default:
+            loginButton.setTitleColor(.appLightBlue, for: .normal)
+            loginButton.backgroundColor = .appHeavyBlue
         }
     }
 }

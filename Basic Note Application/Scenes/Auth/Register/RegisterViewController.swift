@@ -19,7 +19,7 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         stackView.spacing = 10
         return stackView
     }()
-
+    
     private let authSignUpView = AuthSignUpView()
     
     private let nameAuthTextField = AuthTextField()
@@ -41,7 +41,7 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         stackView.axis = .horizontal
         return stackView
     }()
-
+    
     private let signInNowLabel: UILabel = {
         let label = UILabel()
         label.textColor = .appLightGray
@@ -87,7 +87,7 @@ extension RegisterViewController {
         contentStackView.addArrangedSubview(emailAuthTextField)
         contentStackView.addArrangedSubview(passwordAuthTextField)
         contentStackView.addArrangedSubview(passwordView)
-
+        
         passwordView.addSubview(forgotPasswordButton)
         forgotPasswordButton.trailing(to: passwordView)
         forgotPasswordButton.leadingToSuperview(relation: .equalOrGreater)
@@ -114,7 +114,12 @@ extension RegisterViewController {
         view.backgroundColor = .white
         signUpButton.addTarget(self, action: #selector(signUpButtonAction), for: .touchUpInside)
         passwordAuthTextField.isSecureTextEntry = true
+        emailAuthTextField.autocapitalizationType = .none
         subscribe()
+        nameAuthTextField.delegate = self
+        emailAuthTextField.delegate = self
+        passwordAuthTextField.delegate = self
+        handleTextField()
     }
 }
 
@@ -131,7 +136,7 @@ extension RegisterViewController {
         forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
         signInNowButton.setTitle(" Sign In Now", for: .normal)
         signUpButton.setTitle("Sign Up", for: .normal)
-
+        
     }
 }
 
@@ -140,10 +145,10 @@ extension RegisterViewController {
     
     @objc
     private func signUpButtonAction() {
-       guard
-        let unrappedName = nameAuthTextField.text,
-        let unwrappedEmail = emailAuthTextField.text,
-        let unwrappedPassword = passwordAuthTextField.text
+        guard
+            let unrappedName = nameAuthTextField.text,
+            let unwrappedEmail = emailAuthTextField.text,
+            let unwrappedPassword = passwordAuthTextField.text
         else { return }
         
         guard validation.isValidName(unrappedName) else { return }
@@ -162,6 +167,28 @@ extension RegisterViewController {
             guard let self = self else { return }
             let loginVC = LoginViewController(viewModel: LoginViewModel())
             self.navigationController?.pushViewController(loginVC, animated: true)
+        }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension RegisterViewController: UITextFieldDelegate {
+    
+    private func handleTextField() {
+        nameAuthTextField.addTarget(self, action: #selector(RegisterViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailAuthTextField.addTarget(self, action: #selector(RegisterViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordAuthTextField.addTarget(self, action: #selector(RegisterViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+    }
+    
+    @objc
+    func textFieldDidChange() {
+        switch (nameAuthTextField.text?.isEmpty, emailAuthTextField.text?.isEmpty, passwordAuthTextField.text?.isEmpty) {
+        case (false, false, false):
+            signUpButton.setTitleColor(.white, for: .normal)
+            signUpButton.backgroundColor = .appLightBlue
+        default:
+            signUpButton.setTitleColor(.appLightBlue, for: .normal)
+            signUpButton.backgroundColor = .appHeavyBlue
         }
     }
 }
