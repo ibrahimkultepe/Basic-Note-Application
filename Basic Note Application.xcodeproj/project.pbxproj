@@ -51,6 +51,8 @@
 		9C8C408029000D9D002FF9A7 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */; };
 		9CA6465A2937BC5F00AB1FC8 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA646592937BC5F00AB1FC8 /* AuthResponse.swift */; };
 		9CA6465D2937C04B00AB1FC8 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */; };
+		9CAC75932953BF2300BFD784 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC75922953BF2300BFD784 /* ForgotPasswordViewController.swift */; };
+		9CAC75952953BF3A00BFD784 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC75942953BF3A00BFD784 /* ForgotPasswordViewModel.swift */; };
 		9CBCFD87294BCAB3004164A3 /* NoteListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCFD86294BCAB3004164A3 /* NoteListResponse.swift */; };
 		9CBCFD89294BCFE7004164A3 /* NoteCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCFD88294BCFE7004164A3 /* NoteCellModel.swift */; };
 		9CC6AA2929450DDA00E66409 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC6AA2829450DDA00E66409 /* NoteTableViewCell.swift */; };
@@ -107,6 +109,8 @@
 		9C8C407F29000D9D002FF9A7 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		9CA646592937BC5F00AB1FC8 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		9CA6465C2937C04B00AB1FC8 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
+		9CAC75922953BF2300BFD784 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		9CAC75942953BF3A00BFD784 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		9CBCFD86294BCAB3004164A3 /* NoteListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListResponse.swift; sourceTree = "<group>"; };
 		9CBCFD88294BCFE7004164A3 /* NoteCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellModel.swift; sourceTree = "<group>"; };
 		9CC6AA2829450DDA00E66409 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 			children = (
 				9C8862292926C7E900EA45EC /* Register */,
 				9C3CBFD52939301D00AFDFFB /* Login */,
+				9CDC51442953BE8E00A3F972 /* ForgotPassword */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -340,6 +345,15 @@
 				9CBCFD88294BCFE7004164A3 /* NoteCellModel.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		9CDC51442953BE8E00A3F972 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				9CAC75922953BF2300BFD784 /* ForgotPasswordViewController.swift */,
+				9CAC75942953BF3A00BFD784 /* ForgotPasswordViewModel.swift */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		9CFA9E902943CB3900236E34 /* Note */ = {
@@ -499,6 +513,7 @@
 				9C8BB07829254D540030B9F9 /* ToastPresenter.swift in Sources */,
 				9C581BD5292C176C00CA381A /* Validation.swift in Sources */,
 				9CEF720B2953A5BE00305AB9 /* NoteData.swift in Sources */,
+				9CAC75952953BF3A00BFD784 /* ForgotPasswordViewModel.swift in Sources */,
 				9C28271028EF755200806BC2 /* FontExtension.swift in Sources */,
 				9C6AF1FA290B1888007E20E9 /* AuthHeaderView.swift in Sources */,
 				9CEF720D2953A5DC00305AB9 /* NoteDetails.swift in Sources */,
@@ -509,6 +524,7 @@
 				9C3CBFD72939304700AFDFFB /* LoginViewController.swift in Sources */,
 				9C751396292E8CD2009D1F01 /* UIColor+Extensions.swift in Sources */,
 				9C8BB07329254BB80030B9F9 /* ActivityIndicatorProtocol.swift in Sources */,
+				9CAC75932953BF2300BFD784 /* ForgotPasswordViewController.swift in Sources */,
 				9C8C408029000D9D002FF9A7 /* PrimaryButton.swift in Sources */,
 				9CBCFD89294BCFE7004164A3 /* NoteCellModel.swift in Sources */,
 				9CFA9E942943CB6A00236E34 /* NoteListViewModel.swift in Sources */,

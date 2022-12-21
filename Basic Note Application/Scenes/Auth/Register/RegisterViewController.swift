@@ -157,8 +157,8 @@ extension RegisterViewController {
     
     @objc
     private func forgotPasswordButtonAction() {
-//        let forgotPasswordVC = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel())
-//        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+        let forgotPasswordVC = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel())
+        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
 }
 

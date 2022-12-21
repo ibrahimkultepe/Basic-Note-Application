@@ -49,7 +49,7 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         return label
     }()
     
-    private let signUputton: UIButton = {
+    private let signUpButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = .bold(size: 17)
         button.setTitleColor(.appLightBlue, for: .normal)
@@ -102,7 +102,7 @@ extension LoginViewController {
         signUpStackView.trailingToSuperview(relation: .equalOrLess)
         signUpStackView.bottomToSuperview(usingSafeArea: true)
         signUpStackView.addArrangedSubview(signUpLabel)
-        signUpStackView.addArrangedSubview(signUputton)
+        signUpStackView.addArrangedSubview(signUpButton)
     }
 }
 
@@ -131,7 +131,7 @@ extension LoginViewController {
         forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
         loginButton.setTitle("Login", for: .normal)
         signUpLabel.text = "New user?"
-        signUputton.setTitle("Sign up now", for: .normal)
+        signUpButton.setTitle("Sign up now", for: .normal)
     }
 }
 
@@ -150,6 +150,12 @@ extension LoginViewController {
         
         viewModel.loginRequest(email: unwrappedEmail, password: unwrappedPassword)
     }
+    
+    @objc
+    private func forgotPasswordButtonAction() {
+        let forgotPasswordVC = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel())
+        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+    }
 }
 
 // MARK: - Subscribe
@@ -161,11 +167,5 @@ extension LoginViewController {
             let noteVC = NoteListViewController(viewModel: NoteListViewModel())
             self.navigationController?.pushViewController(noteVC, animated: true)
         }
-    }
-    
-    @objc
-    private func forgotPasswordButtonAction() {
-//        let forgotPasswordVC = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel())
-//        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
 }
