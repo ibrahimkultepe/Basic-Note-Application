@@ -116,10 +116,6 @@ extension RegisterViewController {
         passwordAuthTextField.isSecureTextEntry = true
         emailAuthTextField.autocapitalizationType = .none
         subscribe()
-        nameAuthTextField.delegate = self
-        emailAuthTextField.delegate = self
-        passwordAuthTextField.delegate = self
-        handleTextField()
     }
 }
 
@@ -167,28 +163,6 @@ extension RegisterViewController {
             guard let self = self else { return }
             let loginVC = LoginViewController(viewModel: LoginViewModel())
             self.navigationController?.pushViewController(loginVC, animated: true)
-        }
-    }
-}
-
-// MARK: - UITextFieldDelegate
-extension RegisterViewController: UITextFieldDelegate {
-    
-    private func handleTextField() {
-        nameAuthTextField.addTarget(self, action: #selector(RegisterViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        emailAuthTextField.addTarget(self, action: #selector(RegisterViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        passwordAuthTextField.addTarget(self, action: #selector(RegisterViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-    }
-    
-    @objc
-    func textFieldDidChange() {
-        switch (nameAuthTextField.text?.isEmpty, emailAuthTextField.text?.isEmpty, passwordAuthTextField.text?.isEmpty) {
-        case (false, false, false):
-            signUpButton.setTitleColor(.white, for: .normal)
-            signUpButton.backgroundColor = .appLightBlue
-        default:
-            signUpButton.setTitleColor(.appLightBlue, for: .normal)
-            signUpButton.backgroundColor = .appHeavyBlue
         }
     }
 }

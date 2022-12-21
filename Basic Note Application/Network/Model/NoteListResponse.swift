@@ -12,14 +12,3 @@ struct NoteListResponse: Decodable {
     let data: NoteData?
     let code: String?
 }
-
-struct NoteData: Decodable {
-    let total: Int?
-    let data: [NoteDetails]?
-}
-
-struct NoteDetails: Decodable {
-    let id: Int?
-    let title: String?
-    let note: String?
-}

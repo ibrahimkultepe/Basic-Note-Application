@@ -116,9 +116,6 @@ extension LoginViewController {
         passwordAuthTextField.isSecureTextEntry = true
         emailAuthTextField.autocapitalizationType = .none
         subscribe()
-        emailAuthTextField.delegate = self
-        passwordAuthTextField.delegate = self
-        handleTextField()
     }
 }
 
@@ -162,27 +159,6 @@ extension LoginViewController {
             guard let self = self else { return }
             let noteVC = NoteListViewController(viewModel: NoteListViewModel())
             self.navigationController?.pushViewController(noteVC, animated: true)
-        }
-    }
-}
-
-// MARK: - UITextFieldDelegate
-extension LoginViewController: UITextFieldDelegate {
-    
-    private func handleTextField() {
-        emailAuthTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        passwordAuthTextField.addTarget(self, action: #selector(LoginViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-    }
-    
-    @objc
-    func textFieldDidChange() {
-        switch (emailAuthTextField.text?.isEmpty, passwordAuthTextField.text?.isEmpty) {
-        case (false, false):
-            loginButton.setTitleColor(.white, for: .normal)
-            loginButton.backgroundColor = .appLightBlue
-        default:
-            loginButton.setTitleColor(.appLightBlue, for: .normal)
-            loginButton.backgroundColor = .appHeavyBlue
         }
     }
 }
