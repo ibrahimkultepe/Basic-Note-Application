@@ -41,7 +41,7 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         stackView.axis = .horizontal
         return stackView
     }()
-
+    
     private let signInNowLabel: UILabel = {
         let label = UILabel()
         label.textColor = .appLightGray
@@ -87,7 +87,7 @@ extension RegisterViewController {
         contentStackView.addArrangedSubview(emailAuthTextField)
         contentStackView.addArrangedSubview(passwordAuthTextField)
         contentStackView.addArrangedSubview(passwordView)
-
+        
         passwordView.addSubview(forgotPasswordButton)
         forgotPasswordButton.trailing(to: passwordView)
         forgotPasswordButton.leadingToSuperview(relation: .equalOrGreater)
@@ -115,6 +115,7 @@ extension RegisterViewController {
         signUpButton.addTarget(self, action: #selector(signUpButtonAction), for: .touchUpInside)
         forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonAction), for: .touchUpInside)
         passwordAuthTextField.isSecureTextEntry = true
+        emailAuthTextField.autocapitalizationType = .none
         subscribe()
     }
 }
@@ -132,7 +133,7 @@ extension RegisterViewController {
         forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
         signInNowButton.setTitle(" Sign In Now", for: .normal)
         signUpButton.setTitle("Sign Up", for: .normal)
-
+        
     }
 }
 
@@ -141,10 +142,10 @@ extension RegisterViewController {
     
     @objc
     private func signUpButtonAction() {
-       guard
-        let unrappedName = nameAuthTextField.text,
-        let unwrappedEmail = emailAuthTextField.text,
-        let unwrappedPassword = passwordAuthTextField.text
+        guard
+            let unrappedName = nameAuthTextField.text,
+            let unwrappedEmail = emailAuthTextField.text,
+            let unwrappedPassword = passwordAuthTextField.text
         else { return }
         
         guard validation.isValidName(unrappedName) else { return }
@@ -156,8 +157,8 @@ extension RegisterViewController {
     
     @objc
     private func forgotPasswordButtonAction() {
-        let forgotPasswordVC = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel())
-        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+//        let forgotPasswordVC = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel())
+//        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
 }
 

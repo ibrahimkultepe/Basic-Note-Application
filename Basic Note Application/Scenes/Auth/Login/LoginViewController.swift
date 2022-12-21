@@ -57,6 +57,8 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         return button
     }()
     
+    private let validation = Validation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
@@ -113,6 +115,8 @@ extension LoginViewController {
         loginButton.addTarget(self, action: #selector(loginButtonAction), for: .touchUpInside)
         forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonAction), for: .touchUpInside)
         passwordAuthTextField.isSecureTextEntry = true
+        emailAuthTextField.autocapitalizationType = .none
+        subscribe()
     }
 }
 
@@ -136,12 +140,32 @@ extension LoginViewController {
     
     @objc
     private func loginButtonAction() {
+        guard
+            let unwrappedEmail = emailAuthTextField.text,
+            let unwrappedPassword = passwordAuthTextField.text
+        else { return }
         
+        guard validation.isValidEmail(unwrappedEmail) else { return }
+        guard validation.isValidPassword(unwrappedPassword) else { return }
+        
+        viewModel.loginRequest(email: unwrappedEmail, password: unwrappedPassword)
+    }
+}
+
+// MARK: - Subscribe
+extension LoginViewController {
+    
+    private func subscribe() {
+        viewModel.pushToNoteVC = { [weak self] in
+            guard let self = self else { return }
+            let noteVC = NoteListViewController(viewModel: NoteListViewModel())
+            self.navigationController?.pushViewController(noteVC, animated: true)
+        }
     }
     
     @objc
     private func forgotPasswordButtonAction() {
-        let forgotPasswordVC = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel())
-        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+//        let forgotPasswordVC = ForgotPasswordViewController(viewModel: ForgotPasswordViewModel())
+//        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RegisterResponse: Decodable {
+struct AuthResponse: Decodable {
     let code: String?
     let data: TokenModel?
     let message: String?
