@@ -46,4 +46,24 @@ class NoteListViewModel: BaseViewModel {
             }
         }
     }
+    
+    func deleteNoteRequest(noteId: Int) {
+        let url = baseUrl + "notes/\(noteId)"
+        guard let accessToken = keyChainSwift.get("accessToken") else { return }
+        let headers : HTTPHeaders = ["Authorization": "Bearer "+accessToken]
+        showActivityIndicatorView?()
+        
+        AF.request(url, method: .delete, parameters: nil, headers: headers).response { [weak self] response in
+            guard let self = self else { return }
+            self.hideActivityIndicatorView?()
+            guard let data = response.data else { return }
+
+            do {
+                let decoder = JSONDecoder()
+                let decodedData = try decoder.decode(NoteListResponse.self, from: data)
+            } catch {
+                self.showWarningToast?(response.error?.localizedDescription ?? "Not Silinirken Bir Hata Oluştu.")
+            }
+        }
+    }
 }

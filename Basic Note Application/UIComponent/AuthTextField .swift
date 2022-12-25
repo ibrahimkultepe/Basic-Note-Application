@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class AuthTextField : UITextField, UITextFieldDelegate {
+class AuthTextField: UITextField, UITextFieldDelegate {
     
     func configureContents() {
         layer.cornerRadius = 5

@@ -66,7 +66,6 @@ class LoginViewController: BaseViewController<LoginViewModel> {
         setLocalize()
     }
 }
-
 // MARK: - UILayout
 extension LoginViewController {
     
@@ -105,7 +104,6 @@ extension LoginViewController {
         signUpStackView.addArrangedSubview(signUpButton)
     }
 }
-
 // MARK: - Configure
 extension LoginViewController {
     
@@ -119,7 +117,6 @@ extension LoginViewController {
         subscribe()
     }
 }
-
 // MARK: - SetLocalize
 extension LoginViewController {
     
@@ -134,7 +131,6 @@ extension LoginViewController {
         signUpButton.setTitle("Sign up now", for: .normal)
     }
 }
-
 // MARK: - Actions
 extension LoginViewController {
     
@@ -157,7 +153,6 @@ extension LoginViewController {
         self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
 }
-
 // MARK: - Subscribe
 extension LoginViewController {
     

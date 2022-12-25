@@ -31,7 +31,6 @@ class ForgotPasswordViewController: BaseViewController<ForgotPasswordViewModel> 
         setLocalize()
     }
 }
-
 // MARK: - UILayout
 extension ForgotPasswordViewController {
     
@@ -52,7 +51,6 @@ extension ForgotPasswordViewController {
         contentStackView.addArrangedSubview(resetPasswordButton)
     }
 }
-
 //MARK: - Configure
 extension ForgotPasswordViewController {
     
@@ -61,7 +59,6 @@ extension ForgotPasswordViewController {
         resetPasswordButton.addTarget(self, action: #selector(resetPasswordButtonAction), for: .touchUpInside)
     }
 }
-
 //MARK: - Localize
 extension ForgotPasswordViewController {
     
@@ -72,7 +69,6 @@ extension ForgotPasswordViewController {
         resetPasswordButton.setTitle("Reset Password", for: .normal)
     }
 }
-
 //MARK: - Actions
 extension ForgotPasswordViewController {
     

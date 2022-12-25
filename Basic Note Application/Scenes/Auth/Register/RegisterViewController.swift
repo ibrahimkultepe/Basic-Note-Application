@@ -66,7 +66,6 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         setLocalize()
     }
 }
-
 // MARK: - UILayout
 extension RegisterViewController {
     
@@ -106,7 +105,6 @@ extension RegisterViewController {
         signInNowStackView.addArrangedSubview(signInNowButton)
     }
 }
-
 // MARK: - Configure
 extension RegisterViewController {
     
@@ -119,7 +117,6 @@ extension RegisterViewController {
         subscribe()
     }
 }
-
 // MARK: - SetLocalize
 extension RegisterViewController {
     
@@ -136,7 +133,6 @@ extension RegisterViewController {
         
     }
 }
-
 // MARK: - Actions
 extension RegisterViewController {
     
@@ -161,7 +157,6 @@ extension RegisterViewController {
         self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
 }
-
 // MARK: - Subscribe
 extension RegisterViewController {
     

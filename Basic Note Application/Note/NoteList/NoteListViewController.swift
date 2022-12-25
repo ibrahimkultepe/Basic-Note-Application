@@ -34,6 +34,11 @@ class NoteListViewController: BaseViewController<NoteListViewModel> {
         setLocalize()
         viewModel.getMyNotes()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+         super.viewDidAppear(animated)
+        viewModel.getMyNotes()
+     }
 }
 
 // MARK: - UILayout
@@ -82,7 +87,8 @@ extension NoteListViewController {
     
     @objc
     private func addNoteButtonAction() {
-
+        let addNoteVC = AddNoteViewController(viewModel: AddNoteViewModel())
+        self.navigationController?.pushViewController(addNoteVC, animated: true)
     }
 }
 
@@ -123,8 +129,9 @@ extension NoteListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, handler) in
-            self?.viewModel.notes.remove(at: indexPath.row)
-            self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+            guard let id = self?.viewModel.notes[indexPath.row].id else { return }
+            self?.viewModel.deleteNoteRequest(noteId: id)
+            self?.viewModel.getMyNotes()
         }
         let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] (action, view, handler) in
             guard let self = self else { return }
