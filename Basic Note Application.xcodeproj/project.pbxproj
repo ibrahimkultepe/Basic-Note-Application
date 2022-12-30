@@ -58,8 +58,8 @@
 		9CC6AA2929450DDA00E66409 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC6AA2829450DDA00E66409 /* NoteTableViewCell.swift */; };
 		9CEF720B2953A5BE00305AB9 /* NoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEF720A2953A5BE00305AB9 /* NoteData.swift */; };
 		9CEF720D2953A5DC00305AB9 /* NoteDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEF720C2953A5DC00305AB9 /* NoteDetails.swift */; };
-		9CF1E2AC2954E9C800253A31 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1E2AB2954E9C800253A31 /* AddNoteViewController.swift */; };
-		9CF1E2AE2954EA0400253A31 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1E2AD2954EA0400253A31 /* AddNoteViewModel.swift */; };
+		9CF1E2AC2954E9C800253A31 /* AddEditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1E2AB2954E9C800253A31 /* AddEditNoteViewController.swift */; };
+		9CF1E2AE2954EA0400253A31 /* AddEditNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1E2AD2954EA0400253A31 /* AddEditNoteViewModel.swift */; };
 		9CF1E2B22955037F00253A31 /* NoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1E2B12955037F00253A31 /* NoteTextView.swift */; };
 		9CFA9E922943CB5C00236E34 /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA9E912943CB5C00236E34 /* NoteListViewController.swift */; };
 		9CFA9E942943CB6A00236E34 /* NoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA9E932943CB6A00236E34 /* NoteListViewModel.swift */; };
@@ -119,8 +119,8 @@
 		9CC6AA2829450DDA00E66409 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		9CEF720A2953A5BE00305AB9 /* NoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteData.swift; sourceTree = "<group>"; };
 		9CEF720C2953A5DC00305AB9 /* NoteDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetails.swift; sourceTree = "<group>"; };
-		9CF1E2AB2954E9C800253A31 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
-		9CF1E2AD2954EA0400253A31 /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		9CF1E2AB2954E9C800253A31 /* AddEditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditNoteViewController.swift; sourceTree = "<group>"; };
+		9CF1E2AD2954EA0400253A31 /* AddEditNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditNoteViewModel.swift; sourceTree = "<group>"; };
 		9CF1E2B12955037F00253A31 /* NoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTextView.swift; sourceTree = "<group>"; };
 		9CFA9E912943CB5C00236E34 /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 		9CFA9E932943CB6A00236E34 /* NoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModel.swift; sourceTree = "<group>"; };
@@ -375,8 +375,8 @@
 		9CF1E2AA2954E97800253A31 /* AddNote */ = {
 			isa = PBXGroup;
 			children = (
-				9CF1E2AB2954E9C800253A31 /* AddNoteViewController.swift */,
-				9CF1E2AD2954EA0400253A31 /* AddNoteViewModel.swift */,
+				9CF1E2AB2954E9C800253A31 /* AddEditNoteViewController.swift */,
+				9CF1E2AD2954EA0400253A31 /* AddEditNoteViewModel.swift */,
 			);
 			path = AddNote;
 			sourceTree = "<group>";
@@ -536,14 +536,14 @@
 				9C6B55852901E26100365FA9 /* AuthTextField .swift in Sources */,
 				9C8BB0682925466A0030B9F9 /* BaseViewModel.swift in Sources */,
 				9C8BB07829254D540030B9F9 /* ToastPresenter.swift in Sources */,
-				9CF1E2AE2954EA0400253A31 /* AddNoteViewModel.swift in Sources */,
+				9CF1E2AE2954EA0400253A31 /* AddEditNoteViewModel.swift in Sources */,
 				9C581BD5292C176C00CA381A /* Validation.swift in Sources */,
 				9CEF720B2953A5BE00305AB9 /* NoteData.swift in Sources */,
 				9CAC75952953BF3A00BFD784 /* ForgotPasswordViewModel.swift in Sources */,
 				9C28271028EF755200806BC2 /* FontExtension.swift in Sources */,
 				9C6AF1FA290B1888007E20E9 /* AuthHeaderView.swift in Sources */,
 				9CF1E2B22955037F00253A31 /* NoteTextView.swift in Sources */,
-				9CF1E2AC2954E9C800253A31 /* AddNoteViewController.swift in Sources */,
+				9CF1E2AC2954E9C800253A31 /* AddEditNoteViewController.swift in Sources */,
 				9CEF720D2953A5DC00305AB9 /* NoteDetails.swift in Sources */,
 				9CBCFD87294BCAB3004164A3 /* NoteListResponse.swift in Sources */,
 				9C8BB07129254B340030B9F9 /* ActivityIndicator.swift in Sources */,

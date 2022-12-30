@@ -12,6 +12,7 @@ import KeychainSwift
 class NoteListViewModel: BaseViewModel {
     
     var reloadData: VoidClosure?
+    var deleteRow: ((IndexPath) -> ())?
     var notes = [NoteCellModel]()
     private let keyChainSwift = KeychainSwift()
     var numberOfItems: Int {
@@ -47,7 +48,7 @@ class NoteListViewModel: BaseViewModel {
         }
     }
     
-    func deleteNoteRequest(noteId: Int) {
+    func deleteNoteRequest(noteId: Int, indexPath: IndexPath) {
         let url = baseUrl + "notes/\(noteId)"
         guard let accessToken = keyChainSwift.get("accessToken") else { return }
         let headers : HTTPHeaders = ["Authorization": "Bearer "+accessToken]
@@ -56,13 +57,13 @@ class NoteListViewModel: BaseViewModel {
         AF.request(url, method: .delete, parameters: nil, headers: headers).response { [weak self] response in
             guard let self = self else { return }
             self.hideActivityIndicatorView?()
-            guard let data = response.data else { return }
-
-            do {
-                let decoder = JSONDecoder()
-                let decodedData = try decoder.decode(NoteListResponse.self, from: data)
-            } catch {
-                self.showWarningToast?(response.error?.localizedDescription ?? "Not Silinirken Bir Hata Oluştu.")
+            
+            switch response.result {
+            case .success:
+                self.deleteRow?(indexPath)
+                self.reloadData?()
+            case .failure(let error):
+                self.showWarningToast?(error.localizedDescription)
             }
         }
     }
