@@ -27,8 +27,8 @@ class NoteListViewModel: BaseViewModel {
         let url = baseUrl + "users/me/notes?page=1"
         guard let accessToken = keyChainSwift.get("accessToken") else { return }
         let headers : HTTPHeaders = ["Authorization": "Bearer "+accessToken]
+
         showActivityIndicatorView?()
-        
         AF.request(url, method: .get, parameters: nil, headers: headers).response { [weak self] response in
             guard let self = self else { return }
             self.hideActivityIndicatorView?()
@@ -52,14 +52,15 @@ class NoteListViewModel: BaseViewModel {
         let url = baseUrl + "notes/\(noteId)"
         guard let accessToken = keyChainSwift.get("accessToken") else { return }
         let headers : HTTPHeaders = ["Authorization": "Bearer "+accessToken]
+      
         showActivityIndicatorView?()
-        
         AF.request(url, method: .delete, parameters: nil, headers: headers).response { [weak self] response in
             guard let self = self else { return }
             self.hideActivityIndicatorView?()
             
             switch response.result {
             case .success:
+                self.notes.remove(at: indexPath.row)
                 self.deleteRow?(indexPath)
                 self.reloadData?()
             case .failure(let error):

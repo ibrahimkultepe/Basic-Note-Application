@@ -12,11 +12,9 @@ import Alamofire
 
 class AddEditNoteViewModel: BaseViewModel {
     
-    var title: String?
-    var subtitle: String?
-    var noteId  = 0
-    var isEditing = false
-    var pushToNoteListVC: VoidClosure?
+    var note: NoteCellModel?
+    var isNoteEditing = false
+    var popToNoteListVC: VoidClosure?
     private let keyChainSwift = KeychainSwift()
     
     func addNoteRequest(title: String, note: String) {
@@ -24,15 +22,15 @@ class AddEditNoteViewModel: BaseViewModel {
         let parameters: [String: String] = ["title": title, "note": note]
         guard let accessToken = keyChainSwift.get("accessToken") else { return }
         let headers : HTTPHeaders = ["Authorization": "Bearer "+accessToken]
+    
         showActivityIndicatorView?()
-        
         AF.request(url, method: .post, parameters: parameters, headers: headers).response { [weak self] response in
             guard let self = self else { return }
             self.hideActivityIndicatorView?()
             
             switch response.result {
             case .success:
-                self.pushToNoteListVC?()
+                self.popToNoteListVC?()
             case .failure(let error):
                 self.showWarningToast?(error.localizedDescription)
             }
@@ -40,19 +38,20 @@ class AddEditNoteViewModel: BaseViewModel {
     }
     
     func updateNoteRequest(title: String, note: String) {
+        guard let noteId = self.note?.id else { return }
         let url = baseUrl + "notes/\(noteId)"
         guard let accessToken = keyChainSwift.get("accessToken") else { return }
         let parameters: [String: String] = ["title": title, "note": note]
         let headers : HTTPHeaders = ["Authorization": "Bearer "+accessToken]
+    
         showActivityIndicatorView?()
-        
         AF.request(url, method: .put, parameters: parameters, headers: headers).response { [weak self] response in
             guard let self = self else { return }
             self.hideActivityIndicatorView?()
 
             switch response.result {
             case .success:
-                self.pushToNoteListVC?()
+                self.popToNoteListVC?()
             case .failure(let error):
                 self.showWarningToast?(error.localizedDescription)
             }

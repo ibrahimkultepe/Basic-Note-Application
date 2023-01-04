@@ -102,8 +102,9 @@ extension NoteListViewController {
         
         viewModel.deleteRow = { [weak self] (indexPath) in
             guard let self = self else { return }
-            self.viewModel.notes.remove(at: indexPath.row)
+            self.tableView.beginUpdates()
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.endUpdates()
         }
     }
 }
@@ -135,19 +136,14 @@ extension NoteListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, handler) in
             guard let id = self?.viewModel.cellItemForAt(indexPath: indexPath).id else { return }
-            tableView.beginUpdates()
             self?.viewModel.deleteNoteRequest(noteId: id, indexPath: indexPath)
-            tableView.endUpdates()
         }
         let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] (action, view, handler) in
             guard let self = self else { return }
             let addEditNoteViewModel = AddEditNoteViewModel()
-            guard let noteId = self.viewModel.cellItemForAt(indexPath: indexPath).id else { return }
             let addEditNoteVC = AddEditNoteViewController(viewModel: addEditNoteViewModel)
-            addEditNoteViewModel.noteId = noteId
-            addEditNoteVC.isEditing = true
-            addEditNoteViewModel.title = self.viewModel.cellItemForAt(indexPath: indexPath).title
-            addEditNoteViewModel.subtitle = self.viewModel.cellItemForAt(indexPath: indexPath).note
+            addEditNoteViewModel.isNoteEditing = true
+            addEditNoteViewModel.note = self.viewModel.notes[indexPath.row]
             self.navigationController?.pushViewController(addEditNoteVC, animated: true)
         }
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])

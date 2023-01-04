@@ -26,11 +26,14 @@ class AddEditNoteViewController: BaseViewController<AddEditNoteViewModel> {
         return saveNoteButton
     }()
     
+    private let validation = Validation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         configureContent()
         setLocalize()
+        subscribe()
     }
 }
 
@@ -44,7 +47,6 @@ extension AddEditNoteViewController {
         titleTextView.height(50)
         stackView.addArrangedSubview(subtitleTextView)
         subtitleTextView.height(200)
-        stackView.setCustomSpacing(50, after: subtitleTextView)
         
         view.addSubview(saveNoteButton)
         saveNoteButton.bottomToSuperview(usingSafeArea: true)
@@ -64,7 +66,6 @@ extension AddEditNoteViewController {
         subtitleTextView.font = .systemFont(ofSize: 16, weight: .light)
         subtitleTextView.textColor = .appLightGray
         saveNoteButton.addTarget(self, action: #selector(saveNoteButtonAction), for: .touchUpInside)
-        subscribe()
     }
 }
 
@@ -73,8 +74,8 @@ extension AddEditNoteViewController {
     
     private func setLocalize() {
         saveNoteButton.setTitle("Save Note", for: .normal)
-        titleTextView.text = viewModel.title
-        subtitleTextView.text = viewModel.subtitle
+        titleTextView.text = viewModel.note?.title
+        subtitleTextView.text = viewModel.note?.note
     }
 }
 
@@ -88,7 +89,10 @@ extension AddEditNoteViewController {
             let subtitle = subtitleTextView.text
         else { return }
         
-        if isEditing {
+        guard validation.isValidTitle(title) else { return }
+        guard validation.isValidSubtitle(subtitle) else { return }
+        
+        if viewModel.isNoteEditing {
             viewModel.updateNoteRequest(title: title, note: subtitle)
         } else {
             viewModel.addNoteRequest(title: title, note: subtitle)
@@ -100,7 +104,7 @@ extension AddEditNoteViewController {
 extension AddEditNoteViewController {
     
     private func subscribe() {
-        viewModel.pushToNoteListVC = { [weak self] in
+        viewModel.popToNoteListVC = { [weak self] in
             guard let self = self else { return }
             self.navigationController?.popViewController(animated: true)
         }

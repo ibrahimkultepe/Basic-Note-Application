@@ -33,7 +33,7 @@ class LoginViewModel: BaseViewModel {
                 
                 self.pushToNoteVC?()
             } catch {
-                self.showWarningToast?(response.error?.localizedDescription ?? "Bir Hata oluştu.")
+                self.showWarningToast?(response.error?.localizedDescription ?? "Kayıt olunurken Bir Hata oluştu.")
             }
         }
     }
