@@ -20,15 +20,12 @@ class RegisterViewModel: BaseViewModel {
         AF.request(url, method: .post, parameters: parameters).response { [weak self] response in
             guard let self = self else { return }
             self.hideActivityIndicatorView?()
-            guard let data = response.data else { return }
             
-            do {
-                let decoder = JSONDecoder()
-                let decodedData = try decoder.decode(AuthResponse.self, from: data)
+            switch response.result {
+            case .success:
                 self.pushToLoginVC?()
-            } catch {
-                print(error)
-                self.showWarningToast?(response.error?.localizedDescription ?? "Bir hata oluştu.")
+            case .failure(let error):
+                self.showWarningToast?(error.localizedDescription)
             }
         }
     }

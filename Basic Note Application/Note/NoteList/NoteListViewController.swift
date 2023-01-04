@@ -8,7 +8,7 @@
 import UIKit
 
 class NoteListViewController: BaseViewController<NoteListViewModel> {
-        
+    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         return searchBar
@@ -32,6 +32,10 @@ class NoteListViewController: BaseViewController<NoteListViewModel> {
         addSubviews()
         configureContent()
         setLocalize()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         viewModel.getMyNotes()
     }
 }
@@ -82,7 +86,8 @@ extension NoteListViewController {
     
     @objc
     private func addNoteButtonAction() {
-
+        let addNoteVC = AddEditNoteViewController(viewModel: AddEditNoteViewModel())
+        self.navigationController?.pushViewController(addNoteVC, animated: true)
     }
 }
 
@@ -93,6 +98,13 @@ extension NoteListViewController {
         viewModel.reloadData = { [weak self] in
             guard let self = self else { return }
             self.tableView.reloadData()
+        }
+        
+        viewModel.deleteRow = { [weak self] (indexPath) in
+            guard let self = self else { return }
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.endUpdates()
         }
     }
 }
@@ -112,7 +124,7 @@ extension NoteListViewController: UITableViewDataSource {
         }
         return UITableViewCell()
     }
-
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         true
     }
@@ -123,11 +135,16 @@ extension NoteListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, handler) in
-            self?.viewModel.notes.remove(at: indexPath.row)
-            self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+            guard let id = self?.viewModel.cellItemForAt(indexPath: indexPath).id else { return }
+            self?.viewModel.deleteNoteRequest(noteId: id, indexPath: indexPath)
         }
         let editAction = UIContextualAction(style: .normal, title: "Edit") { [weak self] (action, view, handler) in
             guard let self = self else { return }
+            let addEditNoteViewModel = AddEditNoteViewModel()
+            let addEditNoteVC = AddEditNoteViewController(viewModel: addEditNoteViewModel)
+            addEditNoteViewModel.isNoteEditing = true
+            addEditNoteViewModel.note = self.viewModel.notes[indexPath.row]
+            self.navigationController?.pushViewController(addEditNoteVC, animated: true)
         }
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         return configuration

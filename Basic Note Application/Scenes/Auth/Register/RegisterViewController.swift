@@ -19,7 +19,7 @@ class RegisterViewController: BaseViewController<RegisterViewModel> {
         stackView.spacing = 10
         return stackView
     }()
-
+    
     private let authSignUpView = AuthHeaderView()
     
     private let nameAuthTextField = AuthTextField()

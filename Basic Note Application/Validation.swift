@@ -35,4 +35,20 @@ class Validation {
         }
         return true
     }
+    
+    func isValidTitle(_ title: String) -> Bool {
+        guard title.count > 1 else {
+            ToastPresenter.showWarningToast(text: "Lütfen bir başlık giriniz")
+            return false
+        }
+        return true
+    }
+    
+    func isValidSubtitle(_ subtitle: String) -> Bool {
+        guard subtitle.count > 1 else {
+            ToastPresenter.showWarningToast(text: "Lütfen not ekleyiniz")
+            return false
+        }
+        return true
+    }
 }

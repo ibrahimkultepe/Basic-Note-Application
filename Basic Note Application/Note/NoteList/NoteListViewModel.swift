@@ -12,6 +12,7 @@ import KeychainSwift
 class NoteListViewModel: BaseViewModel {
     
     var reloadData: VoidClosure?
+    var deleteRow: ((IndexPath) -> ())?
     var notes = [NoteCellModel]()
     private let keyChainSwift = KeychainSwift()
     var numberOfItems: Int {
@@ -26,8 +27,8 @@ class NoteListViewModel: BaseViewModel {
         let url = baseUrl + "users/me/notes?page=1"
         guard let accessToken = keyChainSwift.get("accessToken") else { return }
         let headers : HTTPHeaders = ["Authorization": "Bearer "+accessToken]
+
         showActivityIndicatorView?()
-        
         AF.request(url, method: .get, parameters: nil, headers: headers).response { [weak self] response in
             guard let self = self else { return }
             self.hideActivityIndicatorView?()
@@ -43,6 +44,27 @@ class NoteListViewModel: BaseViewModel {
                 }
             } catch {
                 self.showWarningToast?(response.error?.localizedDescription ?? "Not Listelemede Bir Hata Oluştu.")
+            }
+        }
+    }
+    
+    func deleteNoteRequest(noteId: Int, indexPath: IndexPath) {
+        let url = baseUrl + "notes/\(noteId)"
+        guard let accessToken = keyChainSwift.get("accessToken") else { return }
+        let headers : HTTPHeaders = ["Authorization": "Bearer "+accessToken]
+      
+        showActivityIndicatorView?()
+        AF.request(url, method: .delete, parameters: nil, headers: headers).response { [weak self] response in
+            guard let self = self else { return }
+            self.hideActivityIndicatorView?()
+            
+            switch response.result {
+            case .success:
+                self.notes.remove(at: indexPath.row)
+                self.deleteRow?(indexPath)
+                self.reloadData?()
+            case .failure(let error):
+                self.showWarningToast?(error.localizedDescription)
             }
         }
     }
