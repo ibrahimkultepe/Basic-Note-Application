@@ -172,5 +172,4 @@ extension RegisterViewController {
             self.navigationController?.pushViewController(loginVC, animated: true)
         }
     }
-    
 }
